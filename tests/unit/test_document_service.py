@@ -3,13 +3,13 @@ from uuid import uuid4
 
 import pytest
 
+from ragforge.core.exceptions import DocumentNotFoundException
 from ragforge.models.document import (
     DocumentStatus,
     SourceType,
 )
 from ragforge.schemas.document import DocumentCreate
 from ragforge.services.document_service import (
-    DocumentNotFoundError,
     DocumentService,
 )
 
@@ -54,7 +54,7 @@ async def test_document_not_found() -> None:
         session=session,
     )
 
-    with pytest.raises(DocumentNotFoundError):
+    with pytest.raises(DocumentNotFoundException):
         await service.get_document(uuid4())
 
 

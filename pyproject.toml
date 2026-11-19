@@ -41,3 +41,12 @@ asyncio_default_fixture_loop_scope = "function"
 markers = [
     "integration: tests requiring external services",
 ]
+
+[tool.mypy]
+python_version = "3.12"
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["chromadb", "chromadb.*"]
+ignore_missing_imports = true
+follow_imports = "silent"

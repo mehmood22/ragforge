@@ -1,13 +1,13 @@
 from functools import lru_cache
 
 import chromadb
-from chromadb import HttpClient
+from chromadb.api import ClientAPI
 
 from ragforge.core.config import get_settings
 
 
 @lru_cache
-def get_chroma_client() -> HttpClient:
+def get_chroma_client() -> ClientAPI:
     settings = get_settings()
 
     return chromadb.HttpClient(

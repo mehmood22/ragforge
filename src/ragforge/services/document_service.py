@@ -2,6 +2,7 @@ from uuid import UUID
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from ragforge.core.exceptions import DocumentNotFoundException
 from ragforge.models.document import (
     Document,
     DocumentStatus,
@@ -10,10 +11,6 @@ from ragforge.repositories.document_repository import (
     DocumentRepository,
 )
 from ragforge.schemas.document import DocumentCreate
-
-
-class DocumentNotFoundError(Exception):
-    pass
 
 
 class DocumentService:
@@ -49,7 +46,7 @@ class DocumentService:
         document = await self.repository.get_by_id(document_id)
 
         if document is None:
-            raise DocumentNotFoundError(f"Document {document_id} was not found")
+            raise DocumentNotFoundException()
 
         return document
 

@@ -34,16 +34,21 @@ async def test_create_and_get_document() -> None:
 
             assert response.status_code == 201
 
-            data = response.json()
-            document_id = data["id"]
+            body = response.json()
+            assert body["success"] is True
 
-            assert data["status"] == "pending"
-            assert data["chunk_count"] == 0
+            document_data = body["data"]
+            document_id = document_data["id"]
+
+            assert document_data["status"] == "pending"
+            assert document_data["chunk_count"] == 0
 
             get_response = await client.get(f"/api/v1/documents/{document_id}")
 
             assert get_response.status_code == 200
-            assert get_response.json()["id"] == document_id
+            get_body = get_response.json()
+            assert get_body["success"] is True
+            assert get_body["data"]["id"] == document_id
 
         finally:
             if document_id is not None:
