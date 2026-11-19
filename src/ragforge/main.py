@@ -1,5 +1,8 @@
 from fastapi import FastAPI
 
+from ragforge.api.routes.documents import (
+    router as documents_router,
+)
 from ragforge.api.routes.health import router as health_router
 from ragforge.core.config import get_settings
 
@@ -15,6 +18,11 @@ def create_app() -> FastAPI:
 
     app.include_router(
         health_router,
+        prefix="/api/v1",
+    )
+
+    app.include_router(
+        documents_router,
         prefix="/api/v1",
     )
 
