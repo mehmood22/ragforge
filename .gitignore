@@ -1,0 +1,29 @@
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Local data
+data/
+uploads/
+*.sqlite3
+
+# IDE
+.idea/
+.vscode/
