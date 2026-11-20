@@ -10,6 +10,8 @@ services:
     volumes:
       - ./alembic:/app/alembic
       - ./src:/app/src
+      - uploads_data:/app/uploads
+      - huggingface_cache:/home/appuser/.cache/huggingface
     depends_on:
       postgres:
         condition: service_healthy
@@ -72,5 +74,7 @@ services:
 
 
 volumes:
+  uploads_data:
+  huggingface_cache:
   postgres_data:
   chroma_data:

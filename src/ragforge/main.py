@@ -1,10 +1,13 @@
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from ragforge.api.routes.documents import router as documents_router
 from ragforge.api.routes.health import router as health_router
+from ragforge.api.routes.uploads import router as uploads_router
+
 from ragforge.core.config import get_settings
 from ragforge.core.exceptions import AppException
 from ragforge.core.handlers import (
@@ -62,6 +65,7 @@ def create_app() -> FastAPI:
 
     app.include_router(health_router, prefix="/api/v1")
     app.include_router(documents_router, prefix="/api/v1")
+    app.include_router(uploads_router, prefix="/api/v1")
 
     return app
 
