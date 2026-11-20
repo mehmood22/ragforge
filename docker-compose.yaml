@@ -5,6 +5,8 @@ services:
       dockerfile: Dockerfile
     env_file:
       - .env
+    environment:
+      HF_HOME: /home/appuser/.cache/huggingface
     ports:
       - "127.0.0.1:8000:8000"
     volumes:
@@ -30,9 +32,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test:
-        - CMD-SHELL
-        - pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -53,9 +53,10 @@ services:
       context: .
       dockerfile: Dockerfile
     env_file:
-      - .env
+      - test.env
     environment:
-      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/ragforge_test
+      RAGFORGE_ENV_FILE: test.env
+      HF_HOME: /home/appuser/.cache/huggingface
     profiles:
       - test
     depends_on:
@@ -66,12 +67,13 @@ services:
     volumes:
       - ./tests:/app/tests:ro
       - ./pyproject.toml:/app/pyproject.toml:ro
+      - ./uv.lock:/app/uv.lock:ro
+      - ./test.env:/app/test.env:ro
+      - huggingface_cache:/home/appuser/.cache/huggingface
     command: >
       sh -c "uv sync --locked &&
              uv run --no-sync alembic upgrade head &&
              uv run --no-sync pytest -v"
-
-
 
 volumes:
   uploads_data:

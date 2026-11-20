@@ -5,6 +5,7 @@ HTTP_STATUS_CODES: dict[str, int] = {
     "not_found": 404,
     "conflict": 409,
     "unprocessable_entity": 422,
+    "internal_server_error": 500,
     "service_unavailable": 503,
 }
 
@@ -60,3 +61,19 @@ class ExternalServiceException(AppException):
 class DocumentNotFoundException(NotFoundException):
     error_code = "DOCUMENT_NOT_FOUND"
     default_message = "Document not found"
+
+
+class InvalidDocumentException(ValidationException):
+    error_code = "INVALID_DOCUMENT"
+    default_message = "The document cannot be processed"
+
+
+class StorageException(ExternalServiceException):
+    error_code = "STORAGE_ERROR"
+    default_message = "File storage is unavailable"
+
+
+class IngestionException(AppException):
+    status_code = HTTP_STATUS_CODES["internal_server_error"]
+    error_code = "INGESTION_FAILED"
+    default_message = "Document ingestion failed"

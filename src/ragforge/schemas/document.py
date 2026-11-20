@@ -16,6 +16,10 @@ class DocumentCreate(BaseModel):
         default=None,
         max_length=2048,
     )
+    storage_key: str | None = Field(
+        default=None,
+        max_length=255,
+    )
 
 
 class DocumentResponse(BaseModel):
@@ -27,5 +31,6 @@ class DocumentResponse(BaseModel):
     source_uri: str | None
     status: DocumentStatus
     chunk_count: int
+    storage_key: str | None
     created_at: datetime
     updated_at: datetime

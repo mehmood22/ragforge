@@ -4,19 +4,27 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /app
 
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-ENV UV_LINK_MODE=copy
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    UV_LINK_MODE=copy \
+    UV_COMPILE_BYTECODE=1 \
+    HF_HOME=/home/appuser/.cache/huggingface \
+    PATH="/app/.venv/bin:$PATH"
 
+# 1. Install dependencies
 COPY pyproject.toml uv.lock ./
-COPY README.md ./
-COPY src/ ./src/
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --locked --no-dev --no-install-project
 
-COPY alembic.ini ./
+# 2. Copy project files and install package
+COPY README.md alembic.ini ./
 COPY alembic/ ./alembic/
+COPY src/ ./src/
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --locked --no-dev
 
-RUN uv sync --locked --no-dev
+RUN mkdir -p /app/uploads /home/appuser/.cache/huggingface
 
 EXPOSE 8000
 
-CMD ["uv", "run", "--no-sync", "uvicorn", "ragforge.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "ragforge.main:app", "--host", "0.0.0.0", "--port", "8000"]

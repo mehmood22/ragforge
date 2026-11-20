@@ -4,16 +4,16 @@ from uuid import UUID
 from fastapi import APIRouter, Depends, Query, status
 
 from ragforge.api.dependencies import get_document_service
+from ragforge.core.responses import (
+    ApiResponse,
+    success_response,
+)
 from ragforge.schemas.document import (
     DocumentCreate,
     DocumentResponse,
 )
 from ragforge.services.document_service import (
     DocumentService,
-)
-from ragforge.core.responses import (
-    ApiResponse,
-    success_response,
 )
 
 router = APIRouter(
@@ -59,12 +59,10 @@ async def list_documents(
     )
 
     return success_response(
-        data=[
-            DocumentResponse.model_validate(document)
-            for document in documents
-        ],
+        data=[DocumentResponse.model_validate(document) for document in documents],
         message="Documents retrieved successfully",
     )
+
 
 @router.get(
     "/{document_id}",

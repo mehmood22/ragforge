@@ -1,13 +1,11 @@
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
-
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from ragforge.api.routes.documents import router as documents_router
 from ragforge.api.routes.health import router as health_router
 from ragforge.api.routes.uploads import router as uploads_router
-
 from ragforge.core.config import get_settings
 from ragforge.core.exceptions import AppException
 from ragforge.core.handlers import (
@@ -20,6 +18,8 @@ from ragforge.core.handlers import (
 from ragforge.core.handlers import (
     validation_exception_handler as _validation_exception_handler,
 )
+from ragforge.core.logging import configure_logging
+from ragforge.core.middleware import RequestLoggingMiddleware
 
 
 async def _handle_app_exception(
@@ -51,12 +51,15 @@ async def http_exception_handler(
 
 def create_app() -> FastAPI:
     settings = get_settings()
+    configure_logging(settings.log_level)
 
     app = FastAPI(
         title=settings.app_name,
         version="0.1.0",
         debug=False,
     )
+
+    app.add_middleware(RequestLoggingMiddleware)
 
     app.add_exception_handler(AppException, _handle_app_exception)
     app.add_exception_handler(RequestValidationError, _handle_validation_exception)

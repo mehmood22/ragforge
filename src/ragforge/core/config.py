@@ -1,5 +1,8 @@
+import os
 from functools import lru_cache
+from pathlib import Path
 
+from pydantic import Field, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -12,22 +15,50 @@ class Settings(BaseSettings):
 
     chroma_host: str = "chroma"
     chroma_port: int = 8000
-
-    upload_directory: str = "/app/uploads"
-    max_pdf_pages: int = 100
-    max_upload_bytes: int = 10 * 1024 * 1024
-    chunk_size: int = 800
-    chunk_overlap: int = 120
-    embedding_model: str = (
-        "sentence-transformers/all-MiniLM-L6-v2"
-    )
     chroma_collection: str = "ragforge_documents"
 
+    storage_provider: str = "local"
+    upload_directory: Path = Path("/app/uploads")
+    max_upload_bytes: int = Field(
+        default=10 * 1024 * 1024,
+        gt=0,
+    )
+    max_pdf_pages: int = 100
+
+    cloudinary_cloud_name: str | None = None
+    cloudinary_api_key: str | None = None
+    cloudinary_api_secret: str | None = None
+
+    chunk_size: int = Field(default=800, gt=0)
+    chunk_overlap: int = Field(default=120, ge=0)
+    embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
+
+    log_level: str = "INFO"
+
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=os.environ.get("RAGFORGE_ENV_FILE", ".env"),
         env_file_encoding="utf-8",
         extra="ignore",
     )
+
+    @model_validator(mode="after")
+    def validate_configuration(self) -> "Settings":
+        if self.chunk_overlap >= self.chunk_size:
+            raise ValueError("chunk_overlap must be smaller than chunk_size")
+
+        if self.storage_provider not in {"local", "cloudinary"}:
+            raise ValueError("Unsupported storage provider")
+
+        if self.storage_provider == "cloudinary" and not all(
+            (
+                self.cloudinary_cloud_name,
+                self.cloudinary_api_key,
+                self.cloudinary_api_secret,
+            )
+        ):
+            raise ValueError("Cloudinary credentials are required")
+
+        return self
 
 
 @lru_cache

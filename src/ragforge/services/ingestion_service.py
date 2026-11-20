@@ -1,26 +1,32 @@
 import asyncio
-from pathlib import Path
 from uuid import UUID
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from ragforge.core.config import get_settings
+from ragforge.core.handlers import logger
+from ragforge.infrastructure.chroma import get_chroma_client
 from ragforge.ingestion.chunker import DocumentChunker
 from ragforge.ingestion.embeddings import get_embedding_service
 from ragforge.ingestion.pdf_loader import PDFLoader
-from ragforge.infrastructure.chroma import get_chroma_client
 from ragforge.models.document import Document, DocumentStatus
+from ragforge.storage.base import FileStorage
 
 
 class IngestionService:
-    def __init__(self, session: AsyncSession) -> None:
+    def __init__(
+        self,
+        session: AsyncSession,
+        storage: FileStorage,
+    ) -> None:
         self.session = session
+        self.storage = storage
         self.settings = get_settings()
 
     async def ingest_pdf(
         self,
         document_id: UUID,
-        file_path: Path,
+        storage_key: str,
     ) -> int:
         document = await self.session.get(Document, document_id)
 
@@ -39,7 +45,12 @@ class IngestionService:
                 chunk_overlap=self.settings.chunk_overlap,
             )
 
-            pages = await asyncio.to_thread(loader.load, file_path)
+            content = await self.storage.download(storage_key)
+
+            pages = await asyncio.to_thread(
+                loader.load_bytes,
+                content,
+            )
 
             if not pages:
                 raise ValueError("PDF contains no extractable text")
@@ -68,12 +79,9 @@ class IngestionService:
 
             await asyncio.to_thread(
                 collection.upsert,
-                ids=[
-                    f"{document_id}:{chunk.chunk_index}"
-                    for chunk in chunks
-                ],
+                ids=[f"{document_id}:{chunk.chunk_index}" for chunk in chunks],
                 documents=texts,
-                embeddings=embeddings,
+                embeddings=embeddings,  # type: ignore[arg-type]
                 metadatas=[
                     {
                         "document_id": str(document_id),
@@ -101,10 +109,12 @@ class IngestionService:
                         collection.delete,
                         where={"document_id": str(document_id)},
                     )
-                except Exception:
-                    # A reconciliation worker will be needed
-                    # for failures that cannot be cleaned up.
-                    pass
+                except (RuntimeError, OSError):
+                    logger.warning(
+                        "Failed to clean up Chroma chunks for document_id=%s",
+                        document_id,
+                        exc_info=True,
+                    )
 
             document.status = DocumentStatus.FAILED.value
             document.chunk_count = 0

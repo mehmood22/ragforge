@@ -9,9 +9,7 @@ def test_reject_non_pdf_extension() -> None:
     with TestClient(app) as client:
         response = client.post(
             "/api/v1/uploads/pdf",
-            files={
-                "file": ("test.txt", b"Hello", "text/plain")
-            },
+            files={"file": ("test.txt", b"Hello", "text/plain")},
         )
 
     assert response.status_code == 422

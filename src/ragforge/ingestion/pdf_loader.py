@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from pathlib import Path
+from io import BytesIO
 
 from pypdf import PdfReader
 
@@ -11,8 +11,8 @@ class PageContent:
 
 
 class PDFLoader:
-    def load(self, file_path: Path) -> list[PageContent]:
-        reader = PdfReader(str(file_path), strict=True)
+    def load_bytes(self, content: bytes) -> list[PageContent]:
+        reader = PdfReader(BytesIO(content), strict=True)
 
         if reader.is_encrypted:
             raise ValueError("Encrypted PDFs are not supported")

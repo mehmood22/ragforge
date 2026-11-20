@@ -30,6 +30,7 @@ class DocumentService:
             name=payload.name,
             source_type=payload.source_type.value,
             source_uri=payload.source_uri,
+            storage_key=payload.storage_key,
             status=DocumentStatus.PENDING.value,
             chunk_count=0,
         )
