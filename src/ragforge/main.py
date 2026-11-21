@@ -51,7 +51,13 @@ async def http_exception_handler(
 
 def create_app() -> FastAPI:
     settings = get_settings()
-    configure_logging(settings.log_level)
+    configure_logging(
+        level=settings.log_level,
+        log_to_file=settings.log_to_file,
+        log_dir=settings.log_dir,
+        log_file_prefix=settings.log_file_prefix,
+        log_backup_days=settings.log_backup_days,
+    )
 
     app = FastAPI(
         title=settings.app_name,

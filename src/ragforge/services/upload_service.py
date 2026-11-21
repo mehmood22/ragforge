@@ -1,16 +1,19 @@
+from typing import Annotated
 from uuid import uuid4
 
-from fastapi import UploadFile
+from fastapi import Depends, UploadFile
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from ragforge.core.config import Settings
+from ragforge.core.config import Settings, get_settings
 from ragforge.core.exceptions import ValidationException
+from ragforge.infrastructure.database import get_db_session
 from ragforge.models.document import SourceType
 from ragforge.repositories.document_repository import DocumentRepository
 from ragforge.schemas.document import DocumentCreate, DocumentResponse
 from ragforge.services.document_service import DocumentService
 from ragforge.services.ingestion_service import IngestionService
 from ragforge.storage.base import FileStorage
+from ragforge.storage.factory import get_storage
 from ragforge.storage.helpers import delete_file_safely
 
 
@@ -71,3 +74,15 @@ class UploadService:
         except Exception:
             await delete_file_safely(self.storage, stored.key)
             raise
+
+
+def get_upload_service(
+    session: Annotated[AsyncSession, Depends(get_db_session)],
+    storage: Annotated[FileStorage, Depends(get_storage)],
+    settings: Annotated[Settings, Depends(get_settings)],
+) -> UploadService:
+    return UploadService(
+        session=session,
+        storage=storage,
+        settings=settings,
+    )

@@ -34,6 +34,10 @@ class Settings(BaseSettings):
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
 
     log_level: str = "INFO"
+    log_to_file: bool = True
+    log_dir: Path = Path("/app/logs")
+    log_file_prefix: str = "ragforge"
+    log_backup_days: int = 14
 
     model_config = SettingsConfigDict(
         env_file=os.environ.get("RAGFORGE_ENV_FILE", ".env"),

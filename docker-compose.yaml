@@ -12,6 +12,7 @@ services:
     volumes:
       - ./alembic:/app/alembic
       - ./src:/app/src
+      - ./logs:/app/logs
       - uploads_data:/app/uploads
       - huggingface_cache:/home/appuser/.cache/huggingface
     depends_on:

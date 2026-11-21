@@ -25,6 +25,7 @@ build/
 data/
 uploads/
 *.sqlite3
+logs/
 
 # IDE
 .idea/
