@@ -1,6 +1,7 @@
 from enum import Enum
+from uuid import UUID
 
-from sqlalchemy import CheckConstraint, Integer, String
+from sqlalchemy import CheckConstraint, Integer, String, Uuid
 from sqlalchemy.orm import Mapped, mapped_column
 
 from ragforge.models.base import (
@@ -74,5 +75,10 @@ class Document(
 
     storage_key: Mapped[str | None] = mapped_column(
         String(255),
+        nullable=True,
+    )
+
+    indexed_generation: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
         nullable=True,
     )

@@ -1,20 +1,20 @@
-from typing import Annotated
-from uuid import uuid4
+from dataclasses import dataclass
+from uuid import UUID, uuid4
 
-from fastapi import Depends, UploadFile
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from ragforge.core.config import Settings, get_settings
-from ragforge.core.exceptions import ValidationException
-from ragforge.infrastructure.database import get_db_session
-from ragforge.models.document import SourceType
+from ragforge.models.document import Document, DocumentStatus
+from ragforge.models.ingestion_job import IngestionJob, JobStatus
 from ragforge.repositories.document_repository import DocumentRepository
-from ragforge.schemas.document import DocumentCreate, DocumentResponse
 from ragforge.services.document_service import DocumentService
 from ragforge.services.ingestion_service import IngestionService
 from ragforge.storage.base import FileStorage
-from ragforge.storage.factory import get_storage
-from ragforge.storage.helpers import delete_file_safely
+
+
+@dataclass(frozen=True)
+class UploadResult:
+    document_id: UUID
+    job_id: UUID
 
 
 class UploadService:
@@ -22,11 +22,9 @@ class UploadService:
         self,
         session: AsyncSession,
         storage: FileStorage,
-        settings: Settings,
     ) -> None:
         self.session = session
         self.storage = storage
-        self.settings = settings
         self.document_service = DocumentService(
             DocumentRepository(session),
             session,
@@ -36,53 +34,51 @@ class UploadService:
             storage=storage,
         )
 
-    async def upload_and_ingest_pdf(self, file: UploadFile) -> DocumentResponse:
-        filename = file.filename or ""
-        if not filename.lower().endswith(".pdf"):
-            raise ValidationException("Only PDF files are supported")
-
-        content = await file.read(self.settings.max_upload_bytes + 1)
-        await file.close()
-
-        if len(content) > self.settings.max_upload_bytes:
-            raise ValidationException("PDF exceeds maximum allowed size")
-
-        if not content.startswith(b"%PDF-"):
-            raise ValidationException("Invalid PDF signature")
-
+    async def submit_pdf(
+        self,
+        filename: str,
+        content: bytes,
+    ) -> UploadResult:
         storage_key = f"{uuid4().hex}.pdf"
+
         stored = await self.storage.upload(storage_key, content)
 
         try:
-            document = await self.document_service.create_document(
-                DocumentCreate(
-                    name=filename.replace("\\", "/").split("/")[-1],
-                    source_type=SourceType.PDF,
-                    source_uri=None,
-                    storage_key=stored.key,
-                )
-            )
-
-            await self.ingestion_service.ingest_pdf(
-                document_id=document.id,
+            document = Document(
+                name=filename,
+                source_type="pdf",
                 storage_key=stored.key,
+                status=DocumentStatus.PENDING.value,
+                chunk_count=0,
             )
 
-            await self.session.refresh(document)
-            return DocumentResponse.model_validate(document)
+            job = IngestionJob(
+                document_id=document.id,
+                status=JobStatus.PENDING.value,
+                attempts=0,
+                max_attempts=3,
+            )
+
+            self.session.add(document)
+            await self.session.flush()
+
+            job = IngestionJob(
+                document_id=document.id,
+                status=JobStatus.PENDING.value,
+                attempts=0,
+                max_attempts=3,
+            )
+
+            self.session.add(job)
+            await self.session.flush()
+            await self.session.commit()
+
+            return UploadResult(
+                document_id=document.id,
+                job_id=job.id,
+            )
 
         except Exception:
-            await delete_file_safely(self.storage, stored.key)
+            await self.session.rollback()
+            await self.storage.delete(stored.key)
             raise
-
-
-def get_upload_service(
-    session: Annotated[AsyncSession, Depends(get_db_session)],
-    storage: Annotated[FileStorage, Depends(get_storage)],
-    settings: Annotated[Settings, Depends(get_settings)],
-) -> UploadService:
-    return UploadService(
-        session=session,
-        storage=storage,
-        settings=settings,
-    )

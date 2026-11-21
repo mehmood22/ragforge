@@ -76,6 +76,35 @@ services:
              uv run --no-sync alembic upgrade head &&
              uv run --no-sync pytest -v"
 
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+      - uv
+      - run
+      - --no-sync
+      - python
+      - -m
+      - ragforge.workers.ingestion_worker
+    env_file:
+      - .env
+    environment:
+      HF_HOME: /home/appuser/.cache/huggingface
+    volumes:
+      - ./alembic:/app/alembic
+      - ./src:/app/src
+      - ./logs:/app/logs
+      - uploads_data:/app/uploads
+      - huggingface_cache:/home/appuser/.cache/huggingface
+    depends_on:
+      postgres:
+        condition: service_healthy
+      chroma:
+        condition: service_started
+    restart: unless-stopped
+    stop_grace_period: 30s
+
 volumes:
   uploads_data:
   huggingface_cache:
