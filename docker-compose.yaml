@@ -105,6 +105,26 @@ services:
     restart: unless-stopped
     stop_grace_period: 30s
 
+  evals:
+    build: .
+    profiles: ["eval"]
+    env_file:
+      - .env
+    environment:
+      CHROMA_HOST: chroma
+      CHROMA_PORT: "8000"
+      HF_HOME: /home/appuser/.cache/huggingface
+      EVAL_DOCUMENT_ID: ${EVAL_DOCUMENT_ID:?Set EVAL_DOCUMENT_ID}
+    volumes:
+      - ./evals:/app/evals
+      - huggingface_cache:/home/appuser/.cache/huggingface
+    depends_on:
+      postgres:
+        condition: service_healthy
+      chroma:
+        condition: service_started
+    command: ["uv", "run", "--no-sync", "python", "evals/run_evaluation.py"]
+
 volumes:
   uploads_data:
   huggingface_cache:

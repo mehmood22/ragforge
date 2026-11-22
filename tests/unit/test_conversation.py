@@ -1,4 +1,4 @@
-from unittest.mock import AsyncMock
+from unittest.mock import AsyncMock, MagicMock
 from uuid import uuid4
 
 import pytest
@@ -6,10 +6,7 @@ from langchain_core.messages import AIMessage, HumanMessage
 from langgraph.checkpoint.memory import MemorySaver
 
 from ragforge.ai.conversation import build_conversation_graph
-from ragforge.schemas.qa import (
-    AnswerStatus,
-    AskResponse,
-)
+from ragforge.schemas.qa import AnswerStatus, AskResponse
 
 
 @pytest.mark.asyncio
@@ -22,11 +19,19 @@ async def test_conversation_remembers_previous_turns() -> None:
         content="Does the roaming policy apply in Germany?"
     )
 
+    retriever = AsyncMock()
+    retriever.search.return_value = []
+
     qa_service = AsyncMock()
-    qa_service.ask.return_value = AskResponse(
-        answer="The document does not specify Germany.",
-        status=AnswerStatus.INSUFFICIENT_CONTEXT,
-        sources=[],
+    qa_service.retriever = retriever
+    qa_service.top_k = 5
+    qa_service.min_score = 0.35
+    qa_service._insufficient = MagicMock(
+        return_value=AskResponse(
+            answer="The document does not specify Germany.",
+            status=AnswerStatus.INSUFFICIENT_CONTEXT,
+            sources=[],
+        )
     )
 
     graph = build_conversation_graph(
@@ -52,6 +57,7 @@ async def test_conversation_remembers_previous_turns() -> None:
     )
 
     assert len(first["messages"]) == 2
+    assert first["result"]["status"] == "insufficient_context"
     rewrite_model.ainvoke.assert_not_awaited()
 
     second = await graph.ainvoke(
@@ -63,16 +69,10 @@ async def test_conversation_remembers_previous_turns() -> None:
     )
 
     assert len(second["messages"]) == 4
-
     assert second["standalone_question"] == (
         "Does the roaming policy apply in Germany?"
     )
-
-    qa_service.ask.assert_any_await(
-        document_id=document_id,
-        question="Does the roaming policy apply in Germany?",
-    )
-
+    assert second["result"]["status"] == "insufficient_context"
     rewrite_model.ainvoke.assert_awaited_once()
 
 
@@ -81,12 +81,20 @@ async def test_different_conversations_are_isolated() -> None:
     document_id = uuid4()
 
     rewrite_model = AsyncMock()
-    qa_service = AsyncMock()
 
-    qa_service.ask.return_value = AskResponse(
-        answer="Not enough information.",
-        status=AnswerStatus.INSUFFICIENT_CONTEXT,
-        sources=[],
+    retriever = AsyncMock()
+    retriever.search.return_value = []
+
+    qa_service = AsyncMock()
+    qa_service.retriever = retriever
+    qa_service.top_k = 5
+    qa_service.min_score = 0.35
+    qa_service._insufficient = MagicMock(
+        return_value=AskResponse(
+            answer="Not enough information.",
+            status=AnswerStatus.INSUFFICIENT_CONTEXT,
+            sources=[],
+        )
     )
 
     graph = build_conversation_graph(
@@ -105,5 +113,6 @@ async def test_different_conversations_are_isolated() -> None:
         )
 
         assert len(result["messages"]) == 2
+        assert result["result"]["status"] == "insufficient_context"
 
     rewrite_model.ainvoke.assert_not_awaited()

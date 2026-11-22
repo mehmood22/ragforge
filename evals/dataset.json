@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What speeds are accounts throttled to after exhausting high-speed data?",
+    "expected_status": "answered",
+    "required_facts": ["512 kbps", "1 Mbps"]
+  },
+  {
+    "question": "How long should accounts with recent SIM swaps be flagged for elevated fraud monitoring?",
+    "expected_status": "answered",
+    "required_facts": ["30 days"]
+  },
+  {
+    "question": "How many days after invoice generation are autopay customers charged automatically?",
+    "expected_status": "answered",
+    "required_facts": ["14 days"]
+  },
+  {
+    "question": "What is the company's revenue in 2040?",
+    "expected_status": "insufficient_context",
+    "required_facts": []
+  }
+]

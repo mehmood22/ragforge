@@ -14,6 +14,7 @@ from ragforge.schemas.qa import (
     AskResponse,
     GeneratedAnswer,
 )
+from ragforge.schemas.retrieval import RetrievedChunk
 
 INSUFFICIENT_ANSWER = (
     "The provided documents do not contain enough information to answer this question."
@@ -74,6 +75,16 @@ class QAService:
             min_score=self.min_score,
         )
 
+        return await self.answer_from_chunks(
+            question=question,
+            chunks=chunks,
+        )
+
+    async def answer_from_chunks(
+        self,
+        question: str,
+        chunks: list[RetrievedChunk],
+    ) -> AskResponse:
         if not chunks:
             return self._insufficient()
 

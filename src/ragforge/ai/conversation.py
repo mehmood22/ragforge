@@ -14,6 +14,7 @@ from langgraph.graph.message import add_messages
 
 from ragforge.ai.service import QAService
 from ragforge.core.config import get_settings
+from ragforge.schemas.retrieval import RetrievedChunk
 
 REWRITE_PROMPT = ChatPromptTemplate.from_messages(
     [
@@ -47,6 +48,7 @@ class ConversationState(TypedDict, total=False):
     messages: Annotated[list[AnyMessage], add_messages]
     document_id: str
     standalone_question: str
+    retrieved_chunks: list[dict]
     result: dict
 
 
@@ -104,10 +106,39 @@ def build_conversation_graph(
 
         return {"standalone_question": rewritten}
 
-    async def generate_answer(state: ConversationState) -> dict:
-        answer = await qa_service.ask(
+    async def retrieve_context(state: ConversationState) -> dict:
+        chunks = await qa_service.retriever.search(
             document_id=UUID(state["document_id"]),
+            query=state["standalone_question"],
+            top_k=qa_service.top_k,
+            min_score=qa_service.min_score,
+        )
+
+        return {"retrieved_chunks": [chunk.model_dump(mode="json") for chunk in chunks]}
+
+    def route_context(state: ConversationState) -> str:
+        if state.get("retrieved_chunks"):
+            return "generate_answer"
+
+        return "insufficient_context"
+
+    async def insufficient_context(
+        state: ConversationState,
+    ) -> dict:
+        answer = qa_service._insufficient()
+
+        return {
+            "result": answer.model_dump(mode="json"),
+            "messages": [AIMessage(content=answer.answer)],
+        }
+
+    async def generate_answer(state: ConversationState) -> dict:
+        answer = await qa_service.answer_from_chunks(
             question=state["standalone_question"],
+            chunks=[
+                RetrievedChunk.model_validate(chunk)
+                for chunk in state["retrieved_chunks"]
+            ],
         )
 
         return {
@@ -120,11 +151,24 @@ def build_conversation_graph(
     builder = StateGraph(ConversationState)
 
     builder.add_node("rewrite_question", rewrite_question)
+    builder.add_node("retrieve_context", retrieve_context)
     builder.add_node("generate_answer", generate_answer)
+    builder.add_node("insufficient_context", insufficient_context)
 
     builder.add_edge(START, "rewrite_question")
-    builder.add_edge("rewrite_question", "generate_answer")
+    builder.add_edge("rewrite_question", "retrieve_context")
+
+    builder.add_conditional_edges(
+        "retrieve_context",
+        route_context,
+        {
+            "generate_answer": "generate_answer",
+            "insufficient_context": "insufficient_context",
+        },
+    )
+
     builder.add_edge("generate_answer", END)
+    builder.add_edge("insufficient_context", END)
 
     return builder.compile(checkpointer=checkpointer)
 

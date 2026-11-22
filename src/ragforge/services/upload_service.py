@@ -52,13 +52,6 @@ class UploadService:
                 chunk_count=0,
             )
 
-            job = IngestionJob(
-                document_id=document.id,
-                status=JobStatus.PENDING.value,
-                attempts=0,
-                max_attempts=3,
-            )
-
             self.session.add(document)
             await self.session.flush()
 
