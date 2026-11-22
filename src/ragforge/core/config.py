@@ -39,6 +39,9 @@ class Settings(BaseSettings):
     log_file_prefix: str = "ragforge"
     log_backup_days: int = 14
 
+    retrieval_top_k: int = Field(default=5, ge=1, le=20)
+    retrieval_min_score: float = Field(default=0.35, ge=0, le=1)
+
     model_config = SettingsConfigDict(
         env_file=os.environ.get("RAGFORGE_ENV_FILE", ".env"),
         env_file_encoding="utf-8",
