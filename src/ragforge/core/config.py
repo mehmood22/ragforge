@@ -2,7 +2,7 @@ import os
 from functools import lru_cache
 from pathlib import Path
 
-from pydantic import Field, model_validator
+from pydantic import Field, SecretStr, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -41,6 +41,13 @@ class Settings(BaseSettings):
 
     retrieval_top_k: int = Field(default=5, ge=1, le=20)
     retrieval_min_score: float = Field(default=0.35, ge=0, le=1)
+
+    groq_api_key: SecretStr | None = None
+    groq_model: str = "llama-3.3-70b-versatile"
+
+    llm_temperature: float = Field(default=0.0, ge=0, le=2)
+    llm_max_tokens: int = Field(default=700, ge=100, le=4096)
+    rag_max_context_chars: int = Field(default=12000, ge=1000, le=50000)
 
     model_config = SettingsConfigDict(
         env_file=os.environ.get("RAGFORGE_ENV_FILE", ".env"),
