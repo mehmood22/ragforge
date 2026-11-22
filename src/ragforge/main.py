@@ -1,8 +1,14 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
+from ragforge.api.routes.conversations import (
+    router as conversations_router,
+)
 from ragforge.api.routes.documents import router as documents_router
 from ragforge.api.routes.health import router as health_router
 from ragforge.api.routes.ingestion_jobs import (
@@ -54,6 +60,20 @@ async def http_exception_handler(
     )
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    settings = get_settings()
+
+    async with AsyncPostgresSaver.from_conn_string(
+        settings.checkpoint_database_url
+    ) as checkpointer:
+        await checkpointer.setup()
+
+        app.state.checkpointer = checkpointer
+
+        yield
+
+
 def create_app() -> FastAPI:
     settings = get_settings()
     configure_logging(
@@ -68,6 +88,7 @@ def create_app() -> FastAPI:
         title=settings.app_name,
         version="0.1.0",
         debug=False,
+        lifespan=lifespan,
     )
 
     app.add_middleware(RequestLoggingMiddleware)
@@ -83,6 +104,7 @@ def create_app() -> FastAPI:
     app.include_router(ingestion_jobs_router, prefix="/api/v1")
     app.include_router(retrieval_router, prefix="/api/v1")
     app.include_router(qa_router, prefix="/api/v1")
+    app.include_router(conversations_router, prefix="/api/v1")
 
     return app
 
