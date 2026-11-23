@@ -298,4 +298,6 @@ Stop services with `docker compose down`. Named volumes retain data. **Do not ad
 
 ## Author and contributions
 
-Built by [Mehmood Ismail](https://github.com/mehmood22) as an AI/backend engineering portfolio project. Issues and pull requests are welcome. Please include reproduction steps and tests when proposing changes.
+Built and actively maintained by [Mehmood Ismail](https://github.com/mehmood22), RAGForge is an open-source AI knowledge retrieval platform with a long-term vision of becoming a multi-tenant knowledge management and embeddable Q&A platform for developers, teams, and organizations.
+
+Contributions, feature requests, bug reports, and pull requests are welcome. When reporting issues, please include reproduction steps. When proposing changes, please include relevant tests.
