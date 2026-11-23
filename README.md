@@ -16,13 +16,20 @@ AI assistants and future embeddable Q&A integrations.
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![FastAPI](https://img.shields.io/badge/API-FastAPI-009688)
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED)
+[![GitHub Release](https://img.shields.io/github/v/release/mehmood22/ragforge)](https://github.com/mehmood22/ragforge/releases)
 
 RAGForge turns text-based PDFs into searchable knowledge and lets authenticated users ask questions with page-level source references. It combines conventional backend engineering with retrieval-augmented generation (RAG), rather than treating an LLM as a standalone chatbot.
 
-**Status:** Active development — v0.1.0 development milestone.
-RAGForge is a local-first AI knowledge platform with automated
-continuous integration. Cloud deployment, multi-tenant knowledge
-management and embeddable Q&A capabilities are planned.
+
+**Status:** v0.1.0 — Initial public release.
+
+RAGForge is an actively developed, local-first AI knowledge
+platform with automated continuous integration.
+
+Multi-tenant knowledge management, embeddable Q&A capabilities,
+cloud deployment, and additional data-source integrations
+are planned.
+
 
 ## Key features
 
