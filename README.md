@@ -1,6 +1,16 @@
 # RAGForge
 
-**A multi-user, document-grounded AI knowledge API with asynchronous PDF ingestion and persistent conversations.**
+
+**An open-source AI knowledge retrieval and conversational Q&A platform with asynchronous document ingestion, semantic search and persistent conversational memory.**
+
+RAGForge transforms text-based PDFs into searchable knowledge,
+enabling authenticated users to ask questions and receive
+source-grounded answers with page-level citations.
+
+Built with an extensible backend architecture, RAGForge provides
+a foundation for intelligent knowledge management, document-based
+AI assistants and future embeddable Q&A integrations.
+
 
 [![CI](https://github.com/mehmood22/ragforge/actions/workflows/ci.yml/badge.svg)](https://github.com/mehmood22/ragforge/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
@@ -9,9 +19,12 @@
 
 RAGForge turns text-based PDFs into searchable knowledge and lets authenticated users ask questions with page-level source references. It combines conventional backend engineering with retrieval-augmented generation (RAG), rather than treating an LLM as a standalone chatbot.
 
-**Status:** v0.1.0, locally runnable portfolio project. Cloud hosting and continuous deployment are planned; continuous integration is configured.
+**Status:** Active development — v0.1.0 development milestone.
+RAGForge is a local-first AI knowledge platform with automated
+continuous integration. Cloud deployment, multi-tenant knowledge
+management and embeddable Q&A capabilities are planned.
 
-## What it demonstrates
+## Key features
 
 - Versioned REST API, Pydantic validation, service/repository separation and dependency injection.
 - JWT authentication, Argon2 password hashing, document and conversation ownership checks.
@@ -50,8 +63,9 @@ flowchart TD
     AI --> History[Conversation list / History]
     History --> PG
     Chat <-->|Metadata and checkpoints| PG
-    Chat --> Rewrite[Rewrite follow-up with Groq if needed]
-    Rewrite --> Retrieve[Retrieval service]
+    Chat -->|First question| Retrieve[Retrieval service]
+    Chat -->|Follow-up question| Rewrite[Groq question rewriting]
+    Rewrite --> Retrieve
     Search --> Retrieve
     QA --> Retrieve
     Retrieve -->|Check indexed generation| PG
@@ -69,7 +83,10 @@ flowchart TD
 
 The diagram shows logical dependencies, not one sequential request. For conversational requests, LangGraph persists state through PostgreSQL checkpoints before returning the result. See the detailed execution diagrams in the [architecture guide](docs/ARCHITECTURE.md).
 
-PostgreSQL stores users, document metadata, jobs, conversation metadata and checkpoints. Chroma stores indexed chunks and vectors. The worker processes uploads independently of HTTP requests. PDF files and model caches are shared through Docker volumes. Retrieved excerpts are sent to Groq for answer generation; embeddings are computed locally.
+PostgreSQL stores users, document metadata, jobs, conversation metadata and checkpoints. Chroma stores indexed chunks and vectors. The worker processes uploads independently of HTTP requests. PDF files and model caches are shared through Docker volumes. Embeddings are computed locally. Relevant document excerpts
+and questions are sent to Groq for answer generation.
+Recent conversation messages may also be sent to Groq
+when rewriting follow-up questions.
 
 ## Quick start
 
@@ -149,7 +166,18 @@ Use the [walkthrough](docs/DEMO.md) and its synthetic sample PDF. All applicatio
 2. Login using `POST /api/v1/auth/login`; copy `data.access_token` into Swagger's **Authorize** dialog (token only).
 3. Upload a text-based PDF using `POST /api/v1/uploads/pdf` (multipart field `file`). Save `data.document_id` and `data.job_id` from the HTTP 202 response.
 4. Poll `GET /api/v1/ingestion-jobs/{job_id}` until `data.status` is `completed`. Confirm the document is `indexed` using `GET /api/v1/documents/{document_id}`.
-5. Search with `POST /api/v1/retrieval/search` or ask a question using `POST /api/v1/qa/ask`:
+
+5. Perform semantic search using `POST /api/v1/retrieval/search`:
+
+```json
+{
+  "document_id": "REPLACE_WITH_DOCUMENT_UUID",
+  "query": "When are autopay customers charged?",
+  "top_k": 5
+}
+```
+
+6. Ask a document-grounded question using `POST /api/v1/qa/ask`:
 
 ```json
 {
@@ -158,10 +186,33 @@ Use the [walkthrough](docs/DEMO.md) and its synthetic sample PDF. All applicatio
 }
 ```
 
-Answers include `status`, `answer` and `sources` inside `data`. Sources contain citation IDs, page numbers, chunk indexes and excerpts. If evidence is missing, the intended response is `insufficient_context`.
+Answers include `status`, `answer` and `sources` inside `data`.
+Sources contain citation IDs, page numbers, chunk indexes
+and excerpts.
 
-For conversational questions use `POST /conversations/ask` with the same document ID, a new client-generated UUID in `conversation_id`, and a question. Reuse that conversation ID for follow-ups. Retrieve history via `GET /conversations/{conversation_id}/messages`.
+If sufficient evidence is unavailable, the intended response
+status is `insufficient_context`.
 
+7. Start a conversation using `POST /api/v1/conversations/ask`:
+
+```json
+{
+  "document_id": "REPLACE_WITH_DOCUMENT_UUID",
+  "conversation_id": "550e8400-e29b-41d4-a716-446655440000",
+  "question": "What is the SIM swap monitoring period?"
+}
+```
+
+Generate a new UUID when starting a new conversation.
+Reuse the same conversation ID and document ID for follow-up
+questions.
+
+8. Retrieve conversation history using:
+
+`GET /api/v1/conversations/{conversation_id}/messages`
+
+For the complete demonstration, see the
+[step-by-step walkthrough](docs/DEMO.md).
 
 ## API reference
 
@@ -302,16 +353,57 @@ Current scope: text-based PDFs, individual user ownership, one document per conv
 
 Stop services with `docker compose down`. Named volumes retain data. **Do not add `-v` unless you intentionally want to delete databases, PDFs and caches.**
 
+
 ## Roadmap
 
-- Portable Linux VM deployment and automated CD.
-- Organization-level knowledge bases, membership and role-based access.
-- Embeddable guest chat with usage controls.
-- Additional ingestion formats, OCR and document lifecycle management.
-- Expanded evaluation datasets and operational monitoring.
+RAGForge is actively evolving toward a multi-tenant knowledge
+management and embeddable Q&A platform for developers, teams,
+and organizations.
 
-## Author and contributions
+Planned development includes:
 
-Built and actively maintained by [Mehmood Ismail](https://github.com/mehmood22), RAGForge is an open-source AI knowledge retrieval platform with a long-term vision of becoming a multi-tenant knowledge management and embeddable Q&A platform for developers, teams, and organizations.
+- Organization management and tenant-level isolation.
+- Multi-document knowledge bases.
+- Embeddable website Q&A widgets.
+- Public and guest conversation capabilities.
+- Additional document formats and data-source integrations.
+- Administrative tools and usage analytics.
+- Cloud deployment and operational hardening.
 
-Contributions, feature requests, bug reports, and pull requests are welcome. When reporting issues, please include reproduction steps. When proposing changes, please include relevant tests.
+See the [product roadmap](ROADMAP.md) for proposed milestones
+and future development priorities.
+
+## Contributing
+
+Contributions, feature requests, bug reports, and pull requests
+are welcome.
+
+Please read the [contribution guidelines](CONTRIBUTING.md)
+and [code of conduct](CODE_OF_CONDUCT.md) before contributing.
+
+When reporting issues, please include reproduction steps.
+When proposing changes, please include relevant tests.
+
+## Security
+
+For responsible vulnerability reporting, please follow
+the [security policy](SECURITY.md).
+
+## Changelog
+
+See the [changelog](CHANGELOG.md) for notable changes
+and release history.
+
+## License
+
+RAGForge is licensed under the [MIT License](LICENSE).
+
+## Maintainer
+
+Built and actively maintained by
+[Mehmood Ismail](https://github.com/mehmood22).
+
+RAGForge is being developed with the long-term vision of
+providing an extensible, multi-tenant AI knowledge management
+and embeddable Q&A platform for developers, teams,
+and organizations.
