@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     app_name: str = "RAGForge"
     environment: str = "development"
     debug: bool = False
+    docs_enabled: bool = True
 
     database_url: str
 
@@ -50,6 +51,10 @@ class Settings(BaseSettings):
     llm_max_tokens: int = Field(default=700, ge=100, le=4096)
     rag_max_context_chars: int = Field(default=12000, ge=1000, le=50000)
 
+    jwt_secret: SecretStr = Field(min_length=32)
+    jwt_algorithm: str = "HS256"
+    jwt_expire_minutes: int = Field(default=60, ge=1, le=1440)
+
     model_config = SettingsConfigDict(
         env_file=os.environ.get("RAGFORGE_ENV_FILE", ".env"),
         env_file_encoding="utf-8",
@@ -78,6 +83,22 @@ class Settings(BaseSettings):
             )
         ):
             raise ValueError("Cloudinary credentials are required")
+
+        if self.jwt_algorithm != "HS256":
+            raise ValueError("Only HS256 is supported")
+
+        if self.environment == "production":
+            if self.debug:
+                raise ValueError("DEBUG must be false in production")
+
+            if self.groq_api_key is None:
+                raise ValueError("GROQ_API_KEY is required in production")
+
+            if not self.groq_api_key.get_secret_value().strip():
+                raise ValueError("GROQ_API_KEY cannot be empty")
+
+            if self.jwt_secret.get_secret_value().startswith("ragforge-test"):
+                raise ValueError("Test JWT secrets cannot be used in production")
 
         return self
 

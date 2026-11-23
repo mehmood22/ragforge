@@ -1,0 +1,19 @@
+services:
+  postgres:
+    environment:
+      POSTGRES_DB: ragforge
+      POSTGRES_USER: ragforge
+      POSTGRES_PASSWORD: change_me_local_only
+    ports: !reset []
+
+  api:
+    profiles:
+      - app
+
+  worker:
+    profiles:
+      - app
+
+  evals:
+    profiles:
+      - eval

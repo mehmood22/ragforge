@@ -4,6 +4,7 @@ from uuid import UUID
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from ragforge.api.auth import CurrentUserDep
 from ragforge.core.exceptions import NotFoundException
 from ragforge.core.responses import ApiResponse, success_response
 from ragforge.infrastructure.database import get_db_session
@@ -25,9 +26,13 @@ router = APIRouter(
 async def get_ingestion_job(
     job_id: UUID,
     session: Annotated[AsyncSession, Depends(get_db_session)],
+    current_user: CurrentUserDep,
 ) -> ApiResponse[IngestionJobResponse]:
     repository = IngestionJobRepository(session)
-    job = await repository.get_by_id(job_id)
+    job = await repository.get_owned(
+        job_id=job_id,
+        owner_id=current_user.id,
+    )
 
     if job is None:
         raise NotFoundException("Ingestion job not found")

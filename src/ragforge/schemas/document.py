@@ -1,25 +1,12 @@
 from datetime import datetime
 from uuid import UUID
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict
 
 from ragforge.models.document import (
     DocumentStatus,
     SourceType,
 )
-
-
-class DocumentCreate(BaseModel):
-    name: str = Field(min_length=1, max_length=255)
-    source_type: SourceType
-    source_uri: str | None = Field(
-        default=None,
-        max_length=2048,
-    )
-    storage_key: str | None = Field(
-        default=None,
-        max_length=255,
-    )
 
 
 class DocumentResponse(BaseModel):

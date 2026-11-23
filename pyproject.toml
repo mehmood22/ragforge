@@ -1,7 +1,7 @@
 [project]
 name = "ragforge"
 version = "0.1.0"
-description = "Add your description here"
+description = "A secure, multi-user Retrieval-Augmented Generation API with FastAPI, LangGraph, PostgreSQL, ChromaDB, and background PDF ingestion."
 readme = "README.md"
 authors = [
     { name = "Mehmood", email = "mehmood.ismail1222@gmail.com" }
@@ -12,6 +12,7 @@ dependencies = [
     "asyncpg>=0.32.0",
     "chromadb>=1.5.9",
     "cloudinary>=1.47.0",
+    "email-validator>=2.0",
     "fastapi>=0.165.0",
     "langchain-chroma>=1.1.0",
     "langchain-core>=1.8.3",
@@ -22,6 +23,7 @@ dependencies = [
     "langgraph-checkpoint-postgres>=3.2.1",
     "langsmith>=0.15.0",
     "psycopg[binary,pool]>=3.3.9",
+    "pwdlib[argon2]>=0.4.2",
     "pydantic>=2.14.3",
     "pydantic-settings>=2.16.3",
     "pyjwt[crypto]>=2.15.1",

@@ -3,6 +3,8 @@ from typing import Annotated
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from ragforge.api.auth import CurrentUserDep
+from ragforge.api.dependencies import require_owned_document
 from ragforge.core.config import get_settings
 from ragforge.core.responses import ApiResponse, success_response
 from ragforge.infrastructure.database import get_db_session
@@ -27,8 +29,18 @@ router = APIRouter(
 )
 async def search_documents(
     payload: RetrievalRequest,
-    session: Annotated[AsyncSession, Depends(get_db_session)],
+    session: Annotated[
+        AsyncSession,
+        Depends(get_db_session),
+    ],
+    current_user: CurrentUserDep,
 ) -> ApiResponse[RetrievalResponse]:
+    await require_owned_document(
+        session=session,
+        document_id=payload.document_id,
+        owner_id=current_user.id,
+    )
+
     settings = get_settings()
 
     service = RetrievalService(

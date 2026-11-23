@@ -14,6 +14,8 @@ async def test_upload_creates_document_and_job() -> None:
     session.commit = AsyncMock()
     session.rollback = AsyncMock()
 
+    owner_id = uuid4()
+
     def set_ids() -> None:
         for obj in [call.args[0] for call in session.add.call_args_list]:
             if getattr(obj, "id", None) is None:
@@ -35,7 +37,11 @@ async def test_upload_creates_document_and_job() -> None:
     result = await service.submit_pdf(
         filename="test.pdf",
         content=b"%PDF-test",
+        owner_id=owner_id,
     )
+
+    created_document = session.add.call_args_list[0].args[0]
+    assert created_document.owner_id == owner_id
 
     assert result.document_id is not None
     assert result.job_id is not None
@@ -53,6 +59,8 @@ async def test_upload_cleans_file_on_database_failure() -> None:
     session.commit = AsyncMock()
     session.rollback = AsyncMock()
 
+    owner_id = uuid4()
+
     storage = AsyncMock()
     storage.upload.return_value = StoredFile(
         key="failed.pdf",
@@ -68,6 +76,7 @@ async def test_upload_cleans_file_on_database_failure() -> None:
         await service.submit_pdf(
             filename="failed.pdf",
             content=b"%PDF-test",
+            owner_id=owner_id,
         )
 
     session.rollback.assert_awaited_once()

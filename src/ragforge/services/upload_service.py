@@ -5,9 +5,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from ragforge.models.document import Document, DocumentStatus
 from ragforge.models.ingestion_job import IngestionJob, JobStatus
-from ragforge.repositories.document_repository import DocumentRepository
-from ragforge.services.document_service import DocumentService
-from ragforge.services.ingestion_service import IngestionService
 from ragforge.storage.base import FileStorage
 
 
@@ -25,22 +22,14 @@ class UploadService:
     ) -> None:
         self.session = session
         self.storage = storage
-        self.document_service = DocumentService(
-            DocumentRepository(session),
-            session,
-        )
-        self.ingestion_service = IngestionService(
-            session=session,
-            storage=storage,
-        )
 
     async def submit_pdf(
         self,
         filename: str,
         content: bytes,
+        owner_id: UUID,
     ) -> UploadResult:
         storage_key = f"{uuid4().hex}.pdf"
-
         stored = await self.storage.upload(storage_key, content)
 
         try:
@@ -48,6 +37,7 @@ class UploadService:
                 name=filename,
                 source_type="pdf",
                 storage_key=stored.key,
+                owner_id=owner_id,
                 status=DocumentStatus.PENDING.value,
                 chunk_count=0,
             )
@@ -64,6 +54,7 @@ class UploadService:
 
             self.session.add(job)
             await self.session.flush()
+
             await self.session.commit()
 
             return UploadResult(

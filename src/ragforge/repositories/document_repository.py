@@ -37,3 +37,36 @@ class DocumentRepository:
         result = await self.session.scalars(statement)
 
         return list(result.all())
+
+    async def get_owned(
+        self,
+        document_id: UUID,
+        owner_id: UUID,
+    ) -> Document | None:
+        statement = select(Document).where(
+            Document.id == document_id,
+            Document.owner_id == owner_id,
+        )
+
+        return await self.session.scalar(statement)
+
+    async def list_owned(
+        self,
+        owner_id: UUID,
+        limit: int = 20,
+        offset: int = 0,
+    ) -> list[Document]:
+        statement = (
+            select(Document)
+            .where(Document.owner_id == owner_id)
+            .order_by(
+                Document.created_at.desc(),
+                Document.id.desc(),
+            )
+            .limit(limit)
+            .offset(offset)
+        )
+
+        result = await self.session.scalars(statement)
+
+        return list(result.all())

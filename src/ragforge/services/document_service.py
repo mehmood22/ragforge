@@ -5,12 +5,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from ragforge.core.exceptions import DocumentNotFoundException
 from ragforge.models.document import (
     Document,
-    DocumentStatus,
 )
 from ragforge.repositories.document_repository import (
     DocumentRepository,
 )
-from ragforge.schemas.document import DocumentCreate
 
 
 class DocumentService:
@@ -22,29 +20,15 @@ class DocumentService:
         self.repository = repository
         self.session = session
 
-    async def create_document(
+    async def get_document(
         self,
-        payload: DocumentCreate,
+        document_id: UUID,
+        owner_id: UUID,
     ) -> Document:
-        document = Document(
-            name=payload.name,
-            source_type=payload.source_type.value,
-            source_uri=payload.source_uri,
-            storage_key=payload.storage_key,
-            status=DocumentStatus.PENDING.value,
-            chunk_count=0,
+        document = await self.repository.get_owned(
+            document_id=document_id,
+            owner_id=owner_id,
         )
-
-        try:
-            created = await self.repository.create(document)
-            await self.session.commit()
-            return created
-        except Exception:
-            await self.session.rollback()
-            raise
-
-    async def get_document(self, document_id: UUID) -> Document:
-        document = await self.repository.get_by_id(document_id)
 
         if document is None:
             raise DocumentNotFoundException()
@@ -53,10 +37,12 @@ class DocumentService:
 
     async def list_documents(
         self,
+        owner_id: UUID,
         limit: int = 20,
         offset: int = 0,
     ) -> list[Document]:
-        return await self.repository.list_documents(
+        return await self.repository.list_owned(
+            owner_id=owner_id,
             limit=limit,
             offset=offset,
         )

@@ -12,7 +12,6 @@ from ragforge.ai.service import QAService, get_answer_generator
 from ragforge.core.config import get_settings
 from ragforge.retrieval.service import RetrievalService, get_vector_store
 
-
 DATASET_NAME = "ragforge-rag-quality-v1"
 
 

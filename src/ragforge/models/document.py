@@ -1,7 +1,7 @@
 from enum import Enum
 from uuid import UUID
 
-from sqlalchemy import CheckConstraint, Integer, String, Uuid
+from sqlalchemy import CheckConstraint, ForeignKey, Integer, String, Uuid
 from sqlalchemy.orm import Mapped, mapped_column
 
 from ragforge.models.base import (
@@ -81,4 +81,11 @@ class Document(
     indexed_generation: Mapped[UUID | None] = mapped_column(
         Uuid(as_uuid=True),
         nullable=True,
+    )
+
+    owner_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id"),
+        nullable=True,
+        index=True,
     )

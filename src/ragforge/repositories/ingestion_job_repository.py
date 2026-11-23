@@ -126,3 +126,22 @@ class IngestionJobRepository:
                 document.status = DocumentStatus.FAILED.value
 
         return len(jobs)
+
+    async def get_owned(
+        self,
+        job_id: UUID,
+        owner_id: UUID,
+    ) -> IngestionJob | None:
+        statement = (
+            select(IngestionJob)
+            .join(
+                Document,
+                IngestionJob.document_id == Document.id,
+            )
+            .where(
+                IngestionJob.id == job_id,
+                Document.owner_id == owner_id,
+            )
+        )
+
+        return await self.session.scalar(statement)

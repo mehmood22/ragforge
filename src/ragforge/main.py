@@ -6,6 +6,7 @@ from fastapi.responses import JSONResponse
 from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
+from ragforge.api.routes.auth import router as auth_router
 from ragforge.api.routes.conversations import (
     router as conversations_router,
 )
@@ -89,6 +90,9 @@ def create_app() -> FastAPI:
         version="0.1.0",
         debug=False,
         lifespan=lifespan,
+        docs_url="/docs" if settings.docs_enabled else None,
+        redoc_url=None,
+        openapi_url=("/openapi.json" if settings.docs_enabled else None),
     )
 
     app.add_middleware(RequestLoggingMiddleware)
@@ -105,6 +109,7 @@ def create_app() -> FastAPI:
     app.include_router(retrieval_router, prefix="/api/v1")
     app.include_router(qa_router, prefix="/api/v1")
     app.include_router(conversations_router, prefix="/api/v1")
+    app.include_router(auth_router, prefix="/api/v1")
 
     return app
 

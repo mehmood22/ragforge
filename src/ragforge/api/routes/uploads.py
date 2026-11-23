@@ -3,6 +3,7 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, File, UploadFile
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from ragforge.api.auth import CurrentUserDep
 from ragforge.core.config import get_settings
 from ragforge.core.exceptions import ValidationException
 from ragforge.core.responses import ApiResponse, success_response
@@ -28,6 +29,7 @@ async def upload_pdf(
     file: Annotated[UploadFile, File()],
     session: SessionDep,
     storage: StorageDep,
+    current_user: CurrentUserDep,
 ) -> ApiResponse[UploadAcceptedResponse]:
     settings = get_settings()
     filename = (file.filename or "").replace("\\", "/").split("/")[-1]
@@ -49,6 +51,7 @@ async def upload_pdf(
     result = await service.submit_pdf(
         filename=filename,
         content=content,
+        owner_id=current_user.id,
     )
 
     return success_response(

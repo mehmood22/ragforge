@@ -7,6 +7,8 @@ from ragforge.ai.service import (
     QAService,
     get_answer_generator,
 )
+from ragforge.api.auth import CurrentUserDep
+from ragforge.api.dependencies import require_owned_document
 from ragforge.core.config import get_settings
 from ragforge.core.responses import (
     ApiResponse,
@@ -19,7 +21,7 @@ from ragforge.retrieval.service import (
 )
 from ragforge.schemas.qa import AskRequest, AskResponse
 
-router = APIRouter(prefix="/qa", tags=["AI Question Answering"])
+router = APIRouter(prefix="/qa", tags=["AI Question Answering (Not Conversation Q&A)"])
 
 SessionDep = Annotated[
     AsyncSession,
@@ -34,7 +36,14 @@ SessionDep = Annotated[
 async def ask_question(
     payload: AskRequest,
     session: SessionDep,
+    current_user: CurrentUserDep,
 ) -> ApiResponse[AskResponse]:
+    await require_owned_document(
+        session=session,
+        document_id=payload.document_id,
+        owner_id=current_user.id,
+    )
+
     settings = get_settings()
 
     retriever = RetrievalService(

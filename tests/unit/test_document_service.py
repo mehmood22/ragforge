@@ -4,50 +4,18 @@ from uuid import uuid4
 import pytest
 
 from ragforge.core.exceptions import DocumentNotFoundException
-from ragforge.models.document import (
-    DocumentStatus,
-    SourceType,
-)
-from ragforge.schemas.document import DocumentCreate
-from ragforge.services.document_service import (
-    DocumentService,
-)
+from ragforge.services.document_service import DocumentService
 
 
 @pytest.mark.asyncio
-async def test_create_document() -> None:
+async def test_document_not_found_for_other_user() -> None:
     repository = AsyncMock()
     session = AsyncMock()
 
-    repository.create.side_effect = lambda document: document
+    document_id = uuid4()
+    owner_id = uuid4()
 
-    service = DocumentService(
-        repository=repository,
-        session=session,
-    )
-
-    payload = DocumentCreate(
-        name="Roaming Policy",
-        source_type=SourceType.PDF,
-    )
-
-    document = await service.create_document(payload)
-
-    assert document.name == "Roaming Policy"
-    assert document.source_type == "pdf"
-    assert document.status == DocumentStatus.PENDING.value
-    assert document.chunk_count == 0
-
-    repository.create.assert_awaited_once()
-    session.commit.assert_awaited_once()
-
-
-@pytest.mark.asyncio
-async def test_document_not_found() -> None:
-    repository = AsyncMock()
-    session = AsyncMock()
-
-    repository.get_by_id.return_value = None
+    repository.get_owned.return_value = None
 
     service = DocumentService(
         repository=repository,
@@ -55,28 +23,39 @@ async def test_document_not_found() -> None:
     )
 
     with pytest.raises(DocumentNotFoundException):
-        await service.get_document(uuid4())
+        await service.get_document(
+            document_id=document_id,
+            owner_id=owner_id,
+        )
+
+    repository.get_owned.assert_awaited_once_with(
+        document_id=document_id,
+        owner_id=owner_id,
+    )
 
 
 @pytest.mark.asyncio
-async def test_create_document_rolls_back_on_error() -> None:
+async def test_list_documents_filters_by_owner() -> None:
     repository = AsyncMock()
     session = AsyncMock()
+    owner_id = uuid4()
 
-    repository.create.side_effect = RuntimeError("Database write failed")
+    repository.list_owned.return_value = []
 
     service = DocumentService(
         repository=repository,
         session=session,
     )
 
-    payload = DocumentCreate(
-        name="Failure Test",
-        source_type=SourceType.TEXT,
+    result = await service.list_documents(
+        owner_id=owner_id,
+        limit=10,
+        offset=0,
     )
 
-    with pytest.raises(RuntimeError):
-        await service.create_document(payload)
-
-    session.rollback.assert_awaited_once()
-    session.commit.assert_not_awaited()
+    assert result == []
+    repository.list_owned.assert_awaited_once_with(
+        owner_id=owner_id,
+        limit=10,
+        offset=0,
+    )
