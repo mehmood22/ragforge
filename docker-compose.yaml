@@ -115,7 +115,7 @@ services:
       CHROMA_HOST: chroma
       CHROMA_PORT: "8000"
       HF_HOME: /home/appuser/.cache/huggingface
-      EVAL_DOCUMENT_ID: ${EVAL_DOCUMENT_ID:?Set EVAL_DOCUMENT_ID}
+      EVAL_DOCUMENT_ID: ${EVAL_DOCUMENT_ID:-}
     volumes:
       - ./evals:/app/evals
       - huggingface_cache:/home/appuser/.cache/huggingface

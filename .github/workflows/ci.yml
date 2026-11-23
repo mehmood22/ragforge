@@ -43,10 +43,16 @@ jobs:
       - name: Run type checking
         run: uv run mypy src
 
+
   integration:
     name: Docker Integration Tests
     runs-on: ubuntu-latest
     timeout-minutes: 35
+
+    env:
+      POSTGRES_USER: ragforge
+      POSTGRES_PASSWORD: change_me_local_only
+      POSTGRES_DB: ragforge
 
     steps:
       - name: Checkout repository
