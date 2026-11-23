@@ -2,6 +2,18 @@
 
 Use the synthetic `sample-telecom-policy.pdf` in this directory. It contains fictional policies, not real customer information. Start the stack using the README and open http://localhost:8000/docs.
 
+## Verify service availability
+
+Before starting the demonstration, verify that the API
+and its dependencies are available.
+
+- Liveness: http://localhost:8000/api/v1/health
+- Readiness: http://localhost:8000/api/v1/health/ready
+- Swagger UI: http://localhost:8000/docs
+
+Both health endpoints should return HTTP 200 before
+proceeding with document ingestion and question answering.
+
 ## Swagger workflow
 
 1. Register with `POST /api/v1/auth/register`:

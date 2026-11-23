@@ -132,17 +132,24 @@ The first build may take several minutes or longer. The embedding model is downl
 | Liveness | http://localhost:8000/api/v1/health |
 | Readiness (PostgreSQL and Chroma) | http://localhost:8000/api/v1/health/ready |
 
+### Verify application health
+
+```powershell
+Invoke-RestMethod http://localhost:8000/api/v1/health
+Invoke-RestMethod http://localhost:8000/api/v1/health/ready
+```
+
 Readiness should return `{"status":"ready"}`. This does not verify Groq access or worker progress.
 
 ## Try it in five minutes (after setup)
 
-Use the [walkthrough](docs/DEMO.md) and its synthetic sample PDF. All endpoints below are relative to `/api/v1`.
+Use the [walkthrough](docs/DEMO.md) and its synthetic sample PDF. All application endpoints are versioned under `/api/v1`.
 
-1. Register using `POST /auth/register` with an email and a password of at least 12 characters.
-2. Login using `POST /auth/login`; copy `data.access_token` into Swagger's **Authorize** dialog (token only).
-3. Upload a text-based PDF using `POST /uploads/pdf` (multipart field `file`). Save `data.document_id` and `data.job_id` from the HTTP 202 response.
-4. Poll `GET /ingestion-jobs/{job_id}` until `data.status` is `completed`. Confirm the document is `indexed` using `GET /documents/{document_id}`.
-5. Search with `POST /retrieval/search` or ask a question using `POST /qa/ask`:
+1. Register using `POST /api/v1/auth/register` with an email and a password of at least 12 characters.
+2. Login using `POST /api/v1/auth/login`; copy `data.access_token` into Swagger's **Authorize** dialog (token only).
+3. Upload a text-based PDF using `POST /api/v1/uploads/pdf` (multipart field `file`). Save `data.document_id` and `data.job_id` from the HTTP 202 response.
+4. Poll `GET /api/v1/ingestion-jobs/{job_id}` until `data.status` is `completed`. Confirm the document is `indexed` using `GET /api/v1/documents/{document_id}`.
+5. Search with `POST /api/v1/retrieval/search` or ask a question using `POST /api/v1/qa/ask`:
 
 ```json
 {
@@ -155,28 +162,35 @@ Answers include `status`, `answer` and `sources` inside `data`. Sources contain 
 
 For conversational questions use `POST /conversations/ask` with the same document ID, a new client-generated UUID in `conversation_id`, and a question. Reuse that conversation ID for follow-ups. Retrieve history via `GET /conversations/{conversation_id}/messages`.
 
+
 ## API reference
 
-All routes use `/api/v1`. Except for health, registration and login, routes require a bearer token.
+Base URL: `http://localhost:8000`
 
-| Method | Route | Purpose |
+All application endpoints are versioned under `/api/v1`.
+Except for health, registration and login, routes require a bearer token.
+
+| Method | Endpoint | Purpose |
 |---|---|---|
-| GET | `/health` | Liveness |
-| GET | `/health/ready` | Dependency readiness |
-| POST | `/auth/register` | Create user |
-| POST | `/auth/login` | Obtain JWT |
-| GET | `/auth/me` | Current user |
-| POST | `/uploads/pdf` | Queue PDF ingestion |
-| GET | `/documents` | List owned documents |
-| GET | `/documents/{document_id}` | Document metadata |
-| GET | `/ingestion-jobs/{job_id}` | Owned job status |
-| POST | `/retrieval/search` | Semantic search |
-| POST | `/qa/ask` | Stateless grounded Q&A |
-| POST | `/conversations/ask` | Stateful Q&A |
-| GET | `/conversations` | List owned conversations |
-| GET | `/conversations/{conversation_id}/messages` | Conversation history |
+| GET | `/api/v1/health` | Liveness |
+| GET | `/api/v1/health/ready` | Dependency readiness |
+| POST | `/api/v1/auth/register` | Create user |
+| POST | `/api/v1/auth/login` | Obtain JWT |
+| GET | `/api/v1/auth/me` | Current user |
+| POST | `/api/v1/uploads/pdf` | Queue PDF ingestion |
+| GET | `/api/v1/documents` | List owned documents |
+| GET | `/api/v1/documents/{document_id}` | Document metadata |
+| GET | `/api/v1/ingestion-jobs/{job_id}` | Owned job status |
+| POST | `/api/v1/retrieval/search` | Semantic search |
+| POST | `/api/v1/qa/ask` | Stateless grounded Q&A |
+| POST | `/api/v1/conversations/ask` | Stateful Q&A |
+| GET | `/api/v1/conversations` | List owned conversations |
+| GET | `/api/v1/conversations/{conversation_id}/messages` | Conversation history |
 
-List endpoints support `limit` and `offset`. Most business endpoints use a response envelope with `success`, `message`, `data` and `error`; health endpoints return a simple status object.
+List endpoints support `limit` and `offset`. Most business
+endpoints use a response envelope with `success`, `message`,
+`data` and `error`; health endpoints return a simple status object.
+
 
 ## Configuration
 

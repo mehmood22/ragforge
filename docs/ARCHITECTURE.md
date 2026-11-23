@@ -12,7 +12,7 @@ sequenceDiagram
     participant P as PostgreSQL
     participant W as Ingestion worker
     participant V as ChromaDB
-    U->>A: Upload PDF with JWT
+    U->>A: POST /api/v1/uploads/pdf with JWT
     Note over A: Authenticate and validate PDF
     A->>S: Store original file
     A->>P: Persist document and pending job
@@ -52,7 +52,7 @@ sequenceDiagram
     participant R as Retrieval service
     participant E as Local embedding model
     participant V as ChromaDB
-    U->>A: POST /retrieval/search
+    U->>A: POST /api/v1/retrieval/search
     A->>P: Verify document ownership
     A->>R: Search document
     R->>P: Check indexed status and active generation
@@ -76,7 +76,7 @@ sequenceDiagram
     participant R as Retrieval service
     participant V as ChromaDB
     participant L as Groq
-    U->>A: POST /qa/ask
+    U->>A: POST /api/v1/qa/ask
     A->>P: Verify document ownership
     A->>Q: Ask question
     Q->>R: Retrieve context
@@ -109,7 +109,7 @@ sequenceDiagram
     participant R as Retrieval service
     participant V as ChromaDB
     participant L as Groq
-    U->>A: POST /conversations/ask
+    U->>A: POST /api/v1/conversations/ask
     A->>P: Verify ownership and acquire advisory lock
     A->>P: Create or validate conversation metadata
     A->>G: Read state and invoke scoped thread
