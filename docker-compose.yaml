@@ -65,13 +65,16 @@ services:
     environment:
       RAGFORGE_ENV_FILE: test.env.example
       HF_HOME: /home/appuser/.cache/huggingface
+      PYTHONPATH: /app
     depends_on:
       postgres:
         condition: service_healthy
       chroma:
         condition: service_started
     volumes:
+      - ./pyproject.toml:/app/pyproject.toml:ro
       - ./tests:/app/tests:ro
+      - ./evals:/app/evals:ro
       - ./test.env.example:/app/test.env.example:ro
       - huggingface_cache:/home/appuser/.cache/huggingface
     command: >
@@ -127,7 +130,13 @@ services:
         condition: service_healthy
       chroma:
         condition: service_started
-    command: ["uv", "run", "--no-sync", "python", "evals/run_evaluation.py"]
+    command:
+      - uv
+      - run
+      - --no-sync
+      - python
+      - -m
+      - evals.run_evaluation
 
 volumes:
   uploads_data:

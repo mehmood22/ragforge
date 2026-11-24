@@ -3,10 +3,42 @@
 
 All notable changes to RAGForge will be documented in this file.
 
-The format is based on Keep a Changelog, and this project
-adheres to Semantic Versioning.
+The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
 ## [Unreleased]
+
+## [0.1.1] - 2026-11-24
+
+### Added
+
+- Automated retrieval benchmarking with Hit@K, Precision@K, Recall@K, MRR, evidence coverage, and latency measurements.
+- Automated answer evaluation covering required facts, citation validity, evidence coverage, and abstention behaviour.
+- Synthetic professional profile and telecom evaluation datasets.
+- Collection compatibility validation for embedding model and distance metric configuration.
+- Shared evaluation metrics for local benchmarks and LangSmith experiments.
+- Content-versioned LangSmith datasets and experiment configuration metadata.
+- Regression tests for relevance scoring, evaluation metrics, and LangSmith adapters.
+- Evaluation documentation and benchmark results.
+
+### Changed
+
+- Increased the default retrieval Top K to 7.
+- Disabled minimum relevance filtering by default to reduce premature evidence rejection.
+- Improved answer completeness and evidence-grounded response handling.
+- Extended CI code quality checks to include evaluation modules.
+
+### Fixed
+
+- Corrected relevance score conversion for squared L2 distances between unit-normalized embeddings.
+- Addressed retrieval failures caused by overly restrictive relevance filtering.
+
+### Evaluation
+
+- Passed 30/30 answer evaluation cases across two controlled document fixtures.
+- Correctly abstained on 8/8 unsupported questions.
+- Achieved 100% Recall@7 and evidence coverage on the telecom held-out retrieval cases.
+
+These results are specific to the evaluated datasets and do not establish universal accuracy.
 
 ## [0.1.0] - 2026-11-24
 
@@ -49,5 +81,25 @@ Initial public release of RAGForge.
 - Additional operational and security hardening is required
   before public production deployment.
 
-[Unreleased]: https://github.com/mehmood22/ragforge/compare/v0.1.0...HEAD
+## [Unreleased]
+
+### Added
+
+- Automated retrieval benchmarking with Hit@K, Precision@K, Recall@K, MRR, evidence coverage, and latency measurements.
+- Automated answer evaluation covering required facts, citation validity, evidence coverage, and abstention behaviour.
+- Synthetic professional profile and telecom reference evaluation datasets.
+- Collection compatibility validation for embedding model and distance metric configuration.
+- Regression tests for relevance scoring and evaluation utilities.
+- Evaluation methodology and benchmark documentation.
+
+### Changed
+
+- Increased the default retrieval Top K to 7.
+- Disabled minimum relevance filtering by default to reduce premature evidence rejection.
+- Improved answer completeness and evidence-grounded response handling.
+
+### Fixed
+
+- Corrected the relevance score conversion for squared L2 distances between unit-normalized embeddings.
+- Addressed retrieval failures caused by overly restrictive relevance filtering. https://github.com/mehmood22/ragforge/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/mehmood22/ragforge/releases/tag/v0.1.0

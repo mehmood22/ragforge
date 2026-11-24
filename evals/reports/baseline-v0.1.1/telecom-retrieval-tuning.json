@@ -1,0 +1,2368 @@
+{
+  "created_at": "2026-11-24T21:59:34.132661+00:00",
+  "document_id": "572dd3ab-3b70-4508-b97f-467213032f4d",
+  "generation_id": "81535d13-dd6b-43a9-ad4e-676a369bceb8",
+  "dataset": "synthetic_telecom.json",
+  "split": "tuning",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "indexed_chunks": 31,
+  "configurations": [
+    {
+      "top_k": 1,
+      "min_score": 0.0,
+      "case_count": 9,
+      "hit_rate": 1.0,
+      "precision": 1.0,
+      "recall": 0.9444444444444444,
+      "mrr": 1.0,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 26.68587589222524,
+      "cases": [
+        {
+          "case_id": "tel-001",
+          "question": "What are the typical download speeds of 4G LTE networks?",
+          "retrieved_ids": [
+            2
+          ],
+          "relevant_ids": [
+            1,
+            2
+          ],
+          "scores": [
+            0.6858853
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 22.78085600119084
+        },
+        {
+          "case_id": "tel-002",
+          "question": "How long should airplane mode remain enabled when troubleshooting a temporary network glitch?",
+          "retrieved_ids": [
+            4
+          ],
+          "relevant_ids": [
+            4
+          ],
+          "scores": [
+            0.65124675
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 28.007504006382078
+        },
+        {
+          "case_id": "tel-003",
+          "question": "What are the throttled speeds for standard and premium data plans after their high-speed allowances are exhausted?",
+          "retrieved_ids": [
+            7
+          ],
+          "relevant_ids": [
+            7
+          ],
+          "scores": [
+            0.75730559
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 32.51706701121293
+        },
+        {
+          "case_id": "tel-004",
+          "question": "At what data usage level may unlimited plan customers experience deprioritisation during congestion?",
+          "retrieved_ids": [
+            8
+          ],
+          "relevant_ids": [
+            8
+          ],
+          "scores": [
+            0.77572027
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 22.506465000333264
+        },
+        {
+          "case_id": "tel-005",
+          "question": "At which percentages of data usage are push notifications sent?",
+          "retrieved_ids": [
+            10
+          ],
+          "relevant_ids": [
+            10
+          ],
+          "scores": [
+            0.63461535
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 32.607489003567025
+        },
+        {
+          "case_id": "tel-006",
+          "question": "How long can network-level international roaming activation take?",
+          "retrieved_ids": [
+            12
+          ],
+          "relevant_ids": [
+            12
+          ],
+          "scores": [
+            0.672336
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 22.521951992530376
+        },
+        {
+          "case_id": "tel-007",
+          "question": "Can an eSIM support multiple profiles without physically swapping SIM cards?",
+          "retrieved_ids": [
+            16
+          ],
+          "relevant_ids": [
+            16
+          ],
+          "scores": [
+            0.6547750999999999
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.23932101414539
+        },
+        {
+          "case_id": "tel-008",
+          "question": "How many days after invoice generation are autopay customers charged?",
+          "retrieved_ids": [
+            24
+          ],
+          "relevant_ids": [
+            24
+          ],
+          "scores": [
+            0.710111825
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.217805017950013
+        },
+        {
+          "case_id": "tel-009",
+          "question": "How long should accounts with recent SIM swaps remain under elevated fraud monitoring?",
+          "retrieved_ids": [
+            28
+          ],
+          "relevant_ids": [
+            28
+          ],
+          "scores": [
+            0.6132437
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.774423982715234
+        }
+      ]
+    },
+    {
+      "top_k": 2,
+      "min_score": 0.0,
+      "case_count": 9,
+      "hit_rate": 1.0,
+      "precision": 0.5555555555555556,
+      "recall": 1.0,
+      "mrr": 1.0,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 25.472016668775016,
+      "cases": [
+        {
+          "case_id": "tel-001",
+          "question": "What are the typical download speeds of 4G LTE networks?",
+          "retrieved_ids": [
+            2,
+            1
+          ],
+          "relevant_ids": [
+            1,
+            2
+          ],
+          "scores": [
+            0.6858853,
+            0.63339645
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 29.624032991705462
+        },
+        {
+          "case_id": "tel-002",
+          "question": "How long should airplane mode remain enabled when troubleshooting a temporary network glitch?",
+          "retrieved_ids": [
+            4,
+            6
+          ],
+          "relevant_ids": [
+            4
+          ],
+          "scores": [
+            0.65124675,
+            0.42713575000000004
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 28.162905015051365
+        },
+        {
+          "case_id": "tel-003",
+          "question": "What are the throttled speeds for standard and premium data plans after their high-speed allowances are exhausted?",
+          "retrieved_ids": [
+            7,
+            8
+          ],
+          "relevant_ids": [
+            7
+          ],
+          "scores": [
+            0.75730559,
+            0.55418795
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.436505016637966
+        },
+        {
+          "case_id": "tel-004",
+          "question": "At what data usage level may unlimited plan customers experience deprioritisation during congestion?",
+          "retrieved_ids": [
+            8,
+            7
+          ],
+          "relevant_ids": [
+            8
+          ],
+          "scores": [
+            0.77572027,
+            0.67399952
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 21.942958002910018
+        },
+        {
+          "case_id": "tel-005",
+          "question": "At which percentages of data usage are push notifications sent?",
+          "retrieved_ids": [
+            10,
+            9
+          ],
+          "relevant_ids": [
+            10
+          ],
+          "scores": [
+            0.63461535,
+            0.48359620000000003
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 22.479267994640395
+        },
+        {
+          "case_id": "tel-006",
+          "question": "How long can network-level international roaming activation take?",
+          "retrieved_ids": [
+            12,
+            13
+          ],
+          "relevant_ids": [
+            12
+          ],
+          "scores": [
+            0.672336,
+            0.6288304
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 22.08580099977553
+        },
+        {
+          "case_id": "tel-007",
+          "question": "Can an eSIM support multiple profiles without physically swapping SIM cards?",
+          "retrieved_ids": [
+            16,
+            15
+          ],
+          "relevant_ids": [
+            16
+          ],
+          "scores": [
+            0.6547750999999999,
+            0.5489493
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.216596997575834
+        },
+        {
+          "case_id": "tel-008",
+          "question": "How many days after invoice generation are autopay customers charged?",
+          "retrieved_ids": [
+            24,
+            25
+          ],
+          "relevant_ids": [
+            24
+          ],
+          "scores": [
+            0.710111825,
+            0.41869979999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.682601990411058
+        },
+        {
+          "case_id": "tel-009",
+          "question": "How long should accounts with recent SIM swaps remain under elevated fraud monitoring?",
+          "retrieved_ids": [
+            28,
+            29
+          ],
+          "relevant_ids": [
+            28
+          ],
+          "scores": [
+            0.6132437,
+            0.54576552
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 30.61748101026751
+        }
+      ]
+    },
+    {
+      "top_k": 3,
+      "min_score": 0.0,
+      "case_count": 9,
+      "hit_rate": 1.0,
+      "precision": 0.37037037037037035,
+      "recall": 1.0,
+      "mrr": 1.0,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 27.885862108733917,
+      "cases": [
+        {
+          "case_id": "tel-001",
+          "question": "What are the typical download speeds of 4G LTE networks?",
+          "retrieved_ids": [
+            2,
+            1,
+            0
+          ],
+          "relevant_ids": [
+            1,
+            2
+          ],
+          "scores": [
+            0.6858853,
+            0.63339645,
+            0.44011690000000003
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 30.1997950009536
+        },
+        {
+          "case_id": "tel-002",
+          "question": "How long should airplane mode remain enabled when troubleshooting a temporary network glitch?",
+          "retrieved_ids": [
+            4,
+            6,
+            5
+          ],
+          "relevant_ids": [
+            4
+          ],
+          "scores": [
+            0.65124675,
+            0.42713575000000004,
+            0.3931905
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 41.73572201398201
+        },
+        {
+          "case_id": "tel-003",
+          "question": "What are the throttled speeds for standard and premium data plans after their high-speed allowances are exhausted?",
+          "retrieved_ids": [
+            7,
+            8,
+            9
+          ],
+          "relevant_ids": [
+            7
+          ],
+          "scores": [
+            0.75730559,
+            0.55418795,
+            0.5323175499999999
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.196788988774642
+        },
+        {
+          "case_id": "tel-004",
+          "question": "At what data usage level may unlimited plan customers experience deprioritisation during congestion?",
+          "retrieved_ids": [
+            8,
+            7,
+            9
+          ],
+          "relevant_ids": [
+            8
+          ],
+          "scores": [
+            0.77572027,
+            0.67399952,
+            0.56467998
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.376988982316107
+        },
+        {
+          "case_id": "tel-005",
+          "question": "At which percentages of data usage are push notifications sent?",
+          "retrieved_ids": [
+            10,
+            9,
+            7
+          ],
+          "relevant_ids": [
+            10
+          ],
+          "scores": [
+            0.63461535,
+            0.48359620000000003,
+            0.37669240000000004
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 23.5230170073919
+        },
+        {
+          "case_id": "tel-006",
+          "question": "How long can network-level international roaming activation take?",
+          "retrieved_ids": [
+            12,
+            13,
+            11
+          ],
+          "relevant_ids": [
+            12
+          ],
+          "scores": [
+            0.672336,
+            0.6288304,
+            0.503356
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 23.339904990280047
+        },
+        {
+          "case_id": "tel-007",
+          "question": "Can an eSIM support multiple profiles without physically swapping SIM cards?",
+          "retrieved_ids": [
+            16,
+            15,
+            18
+          ],
+          "relevant_ids": [
+            16
+          ],
+          "scores": [
+            0.6547750999999999,
+            0.5489493,
+            0.41711545000000005
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 33.21382199646905
+        },
+        {
+          "case_id": "tel-008",
+          "question": "How many days after invoice generation are autopay customers charged?",
+          "retrieved_ids": [
+            24,
+            25,
+            26
+          ],
+          "relevant_ids": [
+            24
+          ],
+          "scores": [
+            0.710111825,
+            0.41869979999999996,
+            0.38631495000000005
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.015157996676862
+        },
+        {
+          "case_id": "tel-009",
+          "question": "How long should accounts with recent SIM swaps remain under elevated fraud monitoring?",
+          "retrieved_ids": [
+            28,
+            29,
+            17
+          ],
+          "relevant_ids": [
+            28
+          ],
+          "scores": [
+            0.6132437,
+            0.54576552,
+            0.46720039999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.37156200176105
+        }
+      ]
+    },
+    {
+      "top_k": 5,
+      "min_score": 0.0,
+      "case_count": 9,
+      "hit_rate": 1.0,
+      "precision": 0.22222222222222224,
+      "recall": 1.0,
+      "mrr": 1.0,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 26.155520340479498,
+      "cases": [
+        {
+          "case_id": "tel-001",
+          "question": "What are the typical download speeds of 4G LTE networks?",
+          "retrieved_ids": [
+            2,
+            1,
+            0,
+            19,
+            7
+          ],
+          "relevant_ids": [
+            1,
+            2
+          ],
+          "scores": [
+            0.6858853,
+            0.63339645,
+            0.44011690000000003,
+            0.373263,
+            0.33628250000000004
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.4,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 23.025011993013322
+        },
+        {
+          "case_id": "tel-002",
+          "question": "How long should airplane mode remain enabled when troubleshooting a temporary network glitch?",
+          "retrieved_ids": [
+            4,
+            6,
+            5,
+            13,
+            12
+          ],
+          "relevant_ids": [
+            4
+          ],
+          "scores": [
+            0.65124675,
+            0.42713575000000004,
+            0.3931905,
+            0.3676642,
+            0.27106620000000003
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.42806600104086
+        },
+        {
+          "case_id": "tel-003",
+          "question": "What are the throttled speeds for standard and premium data plans after their high-speed allowances are exhausted?",
+          "retrieved_ids": [
+            7,
+            8,
+            9,
+            26,
+            1
+          ],
+          "relevant_ids": [
+            7
+          ],
+          "scores": [
+            0.75730559,
+            0.55418795,
+            0.5323175499999999,
+            0.34330285000000005,
+            0.34022114999999997
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 28.75427299295552
+        },
+        {
+          "case_id": "tel-004",
+          "question": "At what data usage level may unlimited plan customers experience deprioritisation during congestion?",
+          "retrieved_ids": [
+            8,
+            7,
+            9,
+            10,
+            25
+          ],
+          "relevant_ids": [
+            8
+          ],
+          "scores": [
+            0.77572027,
+            0.67399952,
+            0.56467998,
+            0.4776789,
+            0.43691729999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.87530401069671
+        },
+        {
+          "case_id": "tel-005",
+          "question": "At which percentages of data usage are push notifications sent?",
+          "retrieved_ids": [
+            10,
+            9,
+            7,
+            8,
+            1
+          ],
+          "relevant_ids": [
+            10
+          ],
+          "scores": [
+            0.63461535,
+            0.48359620000000003,
+            0.37669240000000004,
+            0.35739345,
+            0.29464495
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 23.048649018164724
+        },
+        {
+          "case_id": "tel-006",
+          "question": "How long can network-level international roaming activation take?",
+          "retrieved_ids": [
+            12,
+            13,
+            11,
+            14,
+            1
+          ],
+          "relevant_ids": [
+            12
+          ],
+          "scores": [
+            0.672336,
+            0.6288304,
+            0.503356,
+            0.48159965000000005,
+            0.35856615000000003
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.05313900858164
+        },
+        {
+          "case_id": "tel-007",
+          "question": "Can an eSIM support multiple profiles without physically swapping SIM cards?",
+          "retrieved_ids": [
+            16,
+            15,
+            18,
+            17,
+            14
+          ],
+          "relevant_ids": [
+            16
+          ],
+          "scores": [
+            0.6547750999999999,
+            0.5489493,
+            0.41711545000000005,
+            0.40613245,
+            0.29898919999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.71955802361481
+        },
+        {
+          "case_id": "tel-008",
+          "question": "How many days after invoice generation are autopay customers charged?",
+          "retrieved_ids": [
+            24,
+            25,
+            26,
+            23,
+            13
+          ],
+          "relevant_ids": [
+            24
+          ],
+          "scores": [
+            0.710111825,
+            0.41869979999999996,
+            0.38631495000000005,
+            0.38367985000000004,
+            0.30502640000000003
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.594144001137465
+        },
+        {
+          "case_id": "tel-009",
+          "question": "How long should accounts with recent SIM swaps remain under elevated fraud monitoring?",
+          "retrieved_ids": [
+            28,
+            29,
+            17,
+            26,
+            25
+          ],
+          "relevant_ids": [
+            28
+          ],
+          "scores": [
+            0.6132437,
+            0.54576552,
+            0.46720039999999996,
+            0.35015315,
+            0.3484032
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 29.901538015110418
+        }
+      ]
+    },
+    {
+      "top_k": 7,
+      "min_score": 0.0,
+      "case_count": 9,
+      "hit_rate": 1.0,
+      "precision": 0.15873015873015872,
+      "recall": 1.0,
+      "mrr": 1.0,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 30.363363550148076,
+      "cases": [
+        {
+          "case_id": "tel-001",
+          "question": "What are the typical download speeds of 4G LTE networks?",
+          "retrieved_ids": [
+            2,
+            1,
+            0,
+            19,
+            7,
+            12,
+            9
+          ],
+          "relevant_ids": [
+            1,
+            2
+          ],
+          "scores": [
+            0.6858853,
+            0.63339645,
+            0.44011690000000003,
+            0.373263,
+            0.33628250000000004,
+            0.29299014999999995,
+            0.2795078
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2857142857142857,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 31.87946099205874
+        },
+        {
+          "case_id": "tel-002",
+          "question": "How long should airplane mode remain enabled when troubleshooting a temporary network glitch?",
+          "retrieved_ids": [
+            4,
+            6,
+            5,
+            13,
+            12,
+            14,
+            21
+          ],
+          "relevant_ids": [
+            4
+          ],
+          "scores": [
+            0.65124675,
+            0.42713575000000004,
+            0.3931905,
+            0.3676642,
+            0.27106620000000003,
+            0.24156200000000005,
+            0.21495640000000005
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 30.03853900008835
+        },
+        {
+          "case_id": "tel-003",
+          "question": "What are the throttled speeds for standard and premium data plans after their high-speed allowances are exhausted?",
+          "retrieved_ids": [
+            7,
+            8,
+            9,
+            26,
+            1,
+            25,
+            2
+          ],
+          "relevant_ids": [
+            7
+          ],
+          "scores": [
+            0.75730559,
+            0.55418795,
+            0.5323175499999999,
+            0.34330285000000005,
+            0.34022114999999997,
+            0.310781,
+            0.29821600000000004
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 32.66039298614487
+        },
+        {
+          "case_id": "tel-004",
+          "question": "At what data usage level may unlimited plan customers experience deprioritisation during congestion?",
+          "retrieved_ids": [
+            8,
+            7,
+            9,
+            10,
+            25,
+            23,
+            21
+          ],
+          "relevant_ids": [
+            8
+          ],
+          "scores": [
+            0.77572027,
+            0.67399952,
+            0.56467998,
+            0.4776789,
+            0.43691729999999995,
+            0.42873490000000003,
+            0.39933644999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 29.934685997432098
+        },
+        {
+          "case_id": "tel-005",
+          "question": "At which percentages of data usage are push notifications sent?",
+          "retrieved_ids": [
+            10,
+            9,
+            7,
+            8,
+            1,
+            3,
+            2
+          ],
+          "relevant_ids": [
+            10
+          ],
+          "scores": [
+            0.63461535,
+            0.48359620000000003,
+            0.37669240000000004,
+            0.35739345,
+            0.29464495,
+            0.2894375,
+            0.27129455
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 31.50692500639707
+        },
+        {
+          "case_id": "tel-006",
+          "question": "How long can network-level international roaming activation take?",
+          "retrieved_ids": [
+            12,
+            13,
+            11,
+            14,
+            1,
+            6,
+            28
+          ],
+          "relevant_ids": [
+            12
+          ],
+          "scores": [
+            0.672336,
+            0.6288304,
+            0.503356,
+            0.48159965000000005,
+            0.35856615000000003,
+            0.3410617,
+            0.3257909
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 28.29689998179674
+        },
+        {
+          "case_id": "tel-007",
+          "question": "Can an eSIM support multiple profiles without physically swapping SIM cards?",
+          "retrieved_ids": [
+            16,
+            15,
+            18,
+            17,
+            14,
+            28,
+            8
+          ],
+          "relevant_ids": [
+            16
+          ],
+          "scores": [
+            0.6547750999999999,
+            0.5489493,
+            0.41711545000000005,
+            0.40613245,
+            0.29898919999999996,
+            0.2858807,
+            0.27976199999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 31.146787980105728
+        },
+        {
+          "case_id": "tel-008",
+          "question": "How many days after invoice generation are autopay customers charged?",
+          "retrieved_ids": [
+            24,
+            25,
+            26,
+            23,
+            13,
+            8,
+            9
+          ],
+          "relevant_ids": [
+            24
+          ],
+          "scores": [
+            0.710111825,
+            0.41869979999999996,
+            0.38631495000000005,
+            0.38367985000000004,
+            0.30502640000000003,
+            0.22594265000000002,
+            0.22106125
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 28.895170020405203
+        },
+        {
+          "case_id": "tel-009",
+          "question": "How long should accounts with recent SIM swaps remain under elevated fraud monitoring?",
+          "retrieved_ids": [
+            28,
+            29,
+            17,
+            26,
+            25,
+            8,
+            16
+          ],
+          "relevant_ids": [
+            28
+          ],
+          "scores": [
+            0.6132437,
+            0.54576552,
+            0.46720039999999996,
+            0.35015315,
+            0.3484032,
+            0.3135295,
+            0.30368130000000004
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 28.91140998690389
+        }
+      ]
+    },
+    {
+      "top_k": 10,
+      "min_score": 0.0,
+      "case_count": 9,
+      "hit_rate": 1.0,
+      "precision": 0.11111111111111112,
+      "recall": 1.0,
+      "mrr": 1.0,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 27.932474221516813,
+      "cases": [
+        {
+          "case_id": "tel-001",
+          "question": "What are the typical download speeds of 4G LTE networks?",
+          "retrieved_ids": [
+            2,
+            1,
+            0,
+            19,
+            7,
+            12,
+            9,
+            3,
+            21,
+            20
+          ],
+          "relevant_ids": [
+            1,
+            2
+          ],
+          "scores": [
+            0.6858853,
+            0.63339645,
+            0.44011690000000003,
+            0.373263,
+            0.33628250000000004,
+            0.29299014999999995,
+            0.2795078,
+            0.27749495,
+            0.27287615,
+            0.2711258
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 33.052030979888514
+        },
+        {
+          "case_id": "tel-002",
+          "question": "How long should airplane mode remain enabled when troubleshooting a temporary network glitch?",
+          "retrieved_ids": [
+            4,
+            6,
+            5,
+            13,
+            12,
+            14,
+            21,
+            27,
+            8,
+            11
+          ],
+          "relevant_ids": [
+            4
+          ],
+          "scores": [
+            0.65124675,
+            0.42713575000000004,
+            0.3931905,
+            0.3676642,
+            0.27106620000000003,
+            0.24156200000000005,
+            0.21495640000000005,
+            0.2136264,
+            0.20927620000000002,
+            0.2010995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.73100899462588
+        },
+        {
+          "case_id": "tel-003",
+          "question": "What are the throttled speeds for standard and premium data plans after their high-speed allowances are exhausted?",
+          "retrieved_ids": [
+            7,
+            8,
+            9,
+            26,
+            1,
+            25,
+            2,
+            10,
+            23,
+            24
+          ],
+          "relevant_ids": [
+            7
+          ],
+          "scores": [
+            0.75730559,
+            0.55418795,
+            0.5323175499999999,
+            0.34330285000000005,
+            0.34022114999999997,
+            0.310781,
+            0.29821600000000004,
+            0.29218659999999996,
+            0.28508999999999995,
+            0.2815847
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 33.6967570183333
+        },
+        {
+          "case_id": "tel-004",
+          "question": "At what data usage level may unlimited plan customers experience deprioritisation during congestion?",
+          "retrieved_ids": [
+            8,
+            7,
+            9,
+            10,
+            25,
+            23,
+            21,
+            26,
+            11,
+            12
+          ],
+          "relevant_ids": [
+            8
+          ],
+          "scores": [
+            0.77572027,
+            0.67399952,
+            0.56467998,
+            0.4776789,
+            0.43691729999999995,
+            0.42873490000000003,
+            0.39933644999999995,
+            0.39312815,
+            0.38647925000000005,
+            0.37847149999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 31.628091004677117
+        },
+        {
+          "case_id": "tel-005",
+          "question": "At which percentages of data usage are push notifications sent?",
+          "retrieved_ids": [
+            10,
+            9,
+            7,
+            8,
+            1,
+            3,
+            2,
+            12,
+            25,
+            16
+          ],
+          "relevant_ids": [
+            10
+          ],
+          "scores": [
+            0.63461535,
+            0.48359620000000003,
+            0.37669240000000004,
+            0.35739345,
+            0.29464495,
+            0.2894375,
+            0.27129455,
+            0.26091885000000004,
+            0.25544120000000003,
+            0.22949109999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.834057993255556
+        },
+        {
+          "case_id": "tel-006",
+          "question": "How long can network-level international roaming activation take?",
+          "retrieved_ids": [
+            12,
+            13,
+            11,
+            14,
+            1,
+            6,
+            28,
+            2,
+            25,
+            18
+          ],
+          "relevant_ids": [
+            12
+          ],
+          "scores": [
+            0.672336,
+            0.6288304,
+            0.503356,
+            0.48159965000000005,
+            0.35856615000000003,
+            0.3410617,
+            0.3257909,
+            0.31353129999999996,
+            0.30045805000000003,
+            0.29820250000000004
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.338793988339603
+        },
+        {
+          "case_id": "tel-007",
+          "question": "Can an eSIM support multiple profiles without physically swapping SIM cards?",
+          "retrieved_ids": [
+            16,
+            15,
+            18,
+            17,
+            14,
+            28,
+            8,
+            12,
+            6,
+            7
+          ],
+          "relevant_ids": [
+            16
+          ],
+          "scores": [
+            0.6547750999999999,
+            0.5489493,
+            0.41711545000000005,
+            0.40613245,
+            0.29898919999999996,
+            0.2858807,
+            0.27976199999999996,
+            0.24535649999999998,
+            0.24423229999999996,
+            0.24378840000000002
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.477495004655793
+        },
+        {
+          "case_id": "tel-008",
+          "question": "How many days after invoice generation are autopay customers charged?",
+          "retrieved_ids": [
+            24,
+            25,
+            26,
+            23,
+            13,
+            8,
+            9,
+            7,
+            11,
+            12
+          ],
+          "relevant_ids": [
+            24
+          ],
+          "scores": [
+            0.710111825,
+            0.41869979999999996,
+            0.38631495000000005,
+            0.38367985000000004,
+            0.30502640000000003,
+            0.22594265000000002,
+            0.22106125,
+            0.20135075000000002,
+            0.19972250000000003,
+            0.18507399999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.644560005981475
+        },
+        {
+          "case_id": "tel-009",
+          "question": "How long should accounts with recent SIM swaps remain under elevated fraud monitoring?",
+          "retrieved_ids": [
+            28,
+            29,
+            17,
+            26,
+            25,
+            8,
+            16,
+            18,
+            30,
+            23
+          ],
+          "relevant_ids": [
+            28
+          ],
+          "scores": [
+            0.6132437,
+            0.54576552,
+            0.46720039999999996,
+            0.35015315,
+            0.3484032,
+            0.3135295,
+            0.30368130000000004,
+            0.2996339,
+            0.29798,
+            0.28489995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 23.98947300389409
+        }
+      ]
+    },
+    {
+      "top_k": 7,
+      "min_score": 0.15,
+      "case_count": 9,
+      "hit_rate": 1.0,
+      "precision": 0.15873015873015872,
+      "recall": 1.0,
+      "mrr": 1.0,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 26.105849777296598,
+      "cases": [
+        {
+          "case_id": "tel-001",
+          "question": "What are the typical download speeds of 4G LTE networks?",
+          "retrieved_ids": [
+            2,
+            1,
+            0,
+            19,
+            7,
+            12,
+            9
+          ],
+          "relevant_ids": [
+            1,
+            2
+          ],
+          "scores": [
+            0.6858853,
+            0.63339645,
+            0.44011690000000003,
+            0.373263,
+            0.33628250000000004,
+            0.29299014999999995,
+            0.2795078
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2857142857142857,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.375359993427992
+        },
+        {
+          "case_id": "tel-002",
+          "question": "How long should airplane mode remain enabled when troubleshooting a temporary network glitch?",
+          "retrieved_ids": [
+            4,
+            6,
+            5,
+            13,
+            12,
+            14,
+            21
+          ],
+          "relevant_ids": [
+            4
+          ],
+          "scores": [
+            0.65124675,
+            0.42713575000000004,
+            0.3931905,
+            0.3676642,
+            0.27106620000000003,
+            0.24156200000000005,
+            0.21495640000000005
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.91693099727854
+        },
+        {
+          "case_id": "tel-003",
+          "question": "What are the throttled speeds for standard and premium data plans after their high-speed allowances are exhausted?",
+          "retrieved_ids": [
+            7,
+            8,
+            9,
+            26,
+            1,
+            25,
+            2
+          ],
+          "relevant_ids": [
+            7
+          ],
+          "scores": [
+            0.75730559,
+            0.55418795,
+            0.5323175499999999,
+            0.34330285000000005,
+            0.34022114999999997,
+            0.310781,
+            0.29821600000000004
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 29.98840101645328
+        },
+        {
+          "case_id": "tel-004",
+          "question": "At what data usage level may unlimited plan customers experience deprioritisation during congestion?",
+          "retrieved_ids": [
+            8,
+            7,
+            9,
+            10,
+            25,
+            23,
+            21
+          ],
+          "relevant_ids": [
+            8
+          ],
+          "scores": [
+            0.77572027,
+            0.67399952,
+            0.56467998,
+            0.4776789,
+            0.43691729999999995,
+            0.42873490000000003,
+            0.39933644999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.73198197246529
+        },
+        {
+          "case_id": "tel-005",
+          "question": "At which percentages of data usage are push notifications sent?",
+          "retrieved_ids": [
+            10,
+            9,
+            7,
+            8,
+            1,
+            3,
+            2
+          ],
+          "relevant_ids": [
+            10
+          ],
+          "scores": [
+            0.63461535,
+            0.48359620000000003,
+            0.37669240000000004,
+            0.35739345,
+            0.29464495,
+            0.2894375,
+            0.27129455
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.806080997223035
+        },
+        {
+          "case_id": "tel-006",
+          "question": "How long can network-level international roaming activation take?",
+          "retrieved_ids": [
+            12,
+            13,
+            11,
+            14,
+            1,
+            6,
+            28
+          ],
+          "relevant_ids": [
+            12
+          ],
+          "scores": [
+            0.672336,
+            0.6288304,
+            0.503356,
+            0.48159965000000005,
+            0.35856615000000003,
+            0.3410617,
+            0.3257909
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.07241999753751
+        },
+        {
+          "case_id": "tel-007",
+          "question": "Can an eSIM support multiple profiles without physically swapping SIM cards?",
+          "retrieved_ids": [
+            16,
+            15,
+            18,
+            17,
+            14,
+            28,
+            8
+          ],
+          "relevant_ids": [
+            16
+          ],
+          "scores": [
+            0.6547750999999999,
+            0.5489493,
+            0.41711545000000005,
+            0.40613245,
+            0.29898919999999996,
+            0.2858807,
+            0.27976199999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.85913601797074
+        },
+        {
+          "case_id": "tel-008",
+          "question": "How many days after invoice generation are autopay customers charged?",
+          "retrieved_ids": [
+            24,
+            25,
+            26,
+            23,
+            13,
+            8,
+            9
+          ],
+          "relevant_ids": [
+            24
+          ],
+          "scores": [
+            0.710111825,
+            0.41869979999999996,
+            0.38631495000000005,
+            0.38367985000000004,
+            0.30502640000000003,
+            0.22594265000000002,
+            0.22106125
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.912031986285
+        },
+        {
+          "case_id": "tel-009",
+          "question": "How long should accounts with recent SIM swaps remain under elevated fraud monitoring?",
+          "retrieved_ids": [
+            28,
+            29,
+            17,
+            26,
+            25,
+            8,
+            16
+          ],
+          "relevant_ids": [
+            28
+          ],
+          "scores": [
+            0.6132437,
+            0.54576552,
+            0.46720039999999996,
+            0.35015315,
+            0.3484032,
+            0.3135295,
+            0.30368130000000004
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.290305017028004
+        }
+      ]
+    },
+    {
+      "top_k": 7,
+      "min_score": 0.2,
+      "case_count": 9,
+      "hit_rate": 1.0,
+      "precision": 0.15873015873015872,
+      "recall": 1.0,
+      "mrr": 1.0,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 26.924697556144867,
+      "cases": [
+        {
+          "case_id": "tel-001",
+          "question": "What are the typical download speeds of 4G LTE networks?",
+          "retrieved_ids": [
+            2,
+            1,
+            0,
+            19,
+            7,
+            12,
+            9
+          ],
+          "relevant_ids": [
+            1,
+            2
+          ],
+          "scores": [
+            0.6858853,
+            0.63339645,
+            0.44011690000000003,
+            0.373263,
+            0.33628250000000004,
+            0.29299014999999995,
+            0.2795078
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2857142857142857,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.93368401378393
+        },
+        {
+          "case_id": "tel-002",
+          "question": "How long should airplane mode remain enabled when troubleshooting a temporary network glitch?",
+          "retrieved_ids": [
+            4,
+            6,
+            5,
+            13,
+            12,
+            14,
+            21
+          ],
+          "relevant_ids": [
+            4
+          ],
+          "scores": [
+            0.65124675,
+            0.42713575000000004,
+            0.3931905,
+            0.3676642,
+            0.27106620000000003,
+            0.24156200000000005,
+            0.21495640000000005
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.990615006070584
+        },
+        {
+          "case_id": "tel-003",
+          "question": "What are the throttled speeds for standard and premium data plans after their high-speed allowances are exhausted?",
+          "retrieved_ids": [
+            7,
+            8,
+            9,
+            26,
+            1,
+            25,
+            2
+          ],
+          "relevant_ids": [
+            7
+          ],
+          "scores": [
+            0.75730559,
+            0.55418795,
+            0.5323175499999999,
+            0.34330285000000005,
+            0.34022114999999997,
+            0.310781,
+            0.29821600000000004
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 31.55709899147041
+        },
+        {
+          "case_id": "tel-004",
+          "question": "At what data usage level may unlimited plan customers experience deprioritisation during congestion?",
+          "retrieved_ids": [
+            8,
+            7,
+            9,
+            10,
+            25,
+            23,
+            21
+          ],
+          "relevant_ids": [
+            8
+          ],
+          "scores": [
+            0.77572027,
+            0.67399952,
+            0.56467998,
+            0.4776789,
+            0.43691729999999995,
+            0.42873490000000003,
+            0.39933644999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.883884994778782
+        },
+        {
+          "case_id": "tel-005",
+          "question": "At which percentages of data usage are push notifications sent?",
+          "retrieved_ids": [
+            10,
+            9,
+            7,
+            8,
+            1,
+            3,
+            2
+          ],
+          "relevant_ids": [
+            10
+          ],
+          "scores": [
+            0.63461535,
+            0.48359620000000003,
+            0.37669240000000004,
+            0.35739345,
+            0.29464495,
+            0.2894375,
+            0.27129455
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.605660000815988
+        },
+        {
+          "case_id": "tel-006",
+          "question": "How long can network-level international roaming activation take?",
+          "retrieved_ids": [
+            12,
+            13,
+            11,
+            14,
+            1,
+            6,
+            28
+          ],
+          "relevant_ids": [
+            12
+          ],
+          "scores": [
+            0.672336,
+            0.6288304,
+            0.503356,
+            0.48159965000000005,
+            0.35856615000000003,
+            0.3410617,
+            0.3257909
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 28.460975998314098
+        },
+        {
+          "case_id": "tel-007",
+          "question": "Can an eSIM support multiple profiles without physically swapping SIM cards?",
+          "retrieved_ids": [
+            16,
+            15,
+            18,
+            17,
+            14,
+            28,
+            8
+          ],
+          "relevant_ids": [
+            16
+          ],
+          "scores": [
+            0.6547750999999999,
+            0.5489493,
+            0.41711545000000005,
+            0.40613245,
+            0.29898919999999996,
+            0.2858807,
+            0.27976199999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.078048995463178
+        },
+        {
+          "case_id": "tel-008",
+          "question": "How many days after invoice generation are autopay customers charged?",
+          "retrieved_ids": [
+            24,
+            25,
+            26,
+            23,
+            13,
+            8,
+            9
+          ],
+          "relevant_ids": [
+            24
+          ],
+          "scores": [
+            0.710111825,
+            0.41869979999999996,
+            0.38631495000000005,
+            0.38367985000000004,
+            0.30502640000000003,
+            0.22594265000000002,
+            0.22106125
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.26888400502503
+        },
+        {
+          "case_id": "tel-009",
+          "question": "How long should accounts with recent SIM swaps remain under elevated fraud monitoring?",
+          "retrieved_ids": [
+            28,
+            29,
+            17,
+            26,
+            25,
+            8,
+            16
+          ],
+          "relevant_ids": [
+            28
+          ],
+          "scores": [
+            0.6132437,
+            0.54576552,
+            0.46720039999999996,
+            0.35015315,
+            0.3484032,
+            0.3135295,
+            0.30368130000000004
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.543425999581814
+        }
+      ]
+    },
+    {
+      "top_k": 7,
+      "min_score": 0.3,
+      "case_count": 9,
+      "hit_rate": 1.0,
+      "precision": 0.15873015873015872,
+      "recall": 1.0,
+      "mrr": 1.0,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 27.59086633644377,
+      "cases": [
+        {
+          "case_id": "tel-001",
+          "question": "What are the typical download speeds of 4G LTE networks?",
+          "retrieved_ids": [
+            2,
+            1,
+            0,
+            19,
+            7
+          ],
+          "relevant_ids": [
+            1,
+            2
+          ],
+          "scores": [
+            0.6858853,
+            0.63339645,
+            0.44011690000000003,
+            0.373263,
+            0.33628250000000004
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2857142857142857,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.26196899614297
+        },
+        {
+          "case_id": "tel-002",
+          "question": "How long should airplane mode remain enabled when troubleshooting a temporary network glitch?",
+          "retrieved_ids": [
+            4,
+            6,
+            5,
+            13
+          ],
+          "relevant_ids": [
+            4
+          ],
+          "scores": [
+            0.65124675,
+            0.42713575000000004,
+            0.3931905,
+            0.3676642
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 31.31469601066783
+        },
+        {
+          "case_id": "tel-003",
+          "question": "What are the throttled speeds for standard and premium data plans after their high-speed allowances are exhausted?",
+          "retrieved_ids": [
+            7,
+            8,
+            9,
+            26,
+            1,
+            25
+          ],
+          "relevant_ids": [
+            7
+          ],
+          "scores": [
+            0.75730559,
+            0.55418795,
+            0.5323175499999999,
+            0.34330285000000005,
+            0.34022114999999997,
+            0.310781
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 23.864946997491643
+        },
+        {
+          "case_id": "tel-004",
+          "question": "At what data usage level may unlimited plan customers experience deprioritisation during congestion?",
+          "retrieved_ids": [
+            8,
+            7,
+            9,
+            10,
+            25,
+            23,
+            21
+          ],
+          "relevant_ids": [
+            8
+          ],
+          "scores": [
+            0.77572027,
+            0.67399952,
+            0.56467998,
+            0.4776789,
+            0.43691729999999995,
+            0.42873490000000003,
+            0.39933644999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 38.11280999798328
+        },
+        {
+          "case_id": "tel-005",
+          "question": "At which percentages of data usage are push notifications sent?",
+          "retrieved_ids": [
+            10,
+            9,
+            7,
+            8
+          ],
+          "relevant_ids": [
+            10
+          ],
+          "scores": [
+            0.63461535,
+            0.48359620000000003,
+            0.37669240000000004,
+            0.35739345
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.506653008051217
+        },
+        {
+          "case_id": "tel-006",
+          "question": "How long can network-level international roaming activation take?",
+          "retrieved_ids": [
+            12,
+            13,
+            11,
+            14,
+            1,
+            6,
+            28
+          ],
+          "relevant_ids": [
+            12
+          ],
+          "scores": [
+            0.672336,
+            0.6288304,
+            0.503356,
+            0.48159965000000005,
+            0.35856615000000003,
+            0.3410617,
+            0.3257909
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.41896898765117
+        },
+        {
+          "case_id": "tel-007",
+          "question": "Can an eSIM support multiple profiles without physically swapping SIM cards?",
+          "retrieved_ids": [
+            16,
+            15,
+            18,
+            17
+          ],
+          "relevant_ids": [
+            16
+          ],
+          "scores": [
+            0.6547750999999999,
+            0.5489493,
+            0.41711545000000005,
+            0.40613245
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.131083013955504
+        },
+        {
+          "case_id": "tel-008",
+          "question": "How many days after invoice generation are autopay customers charged?",
+          "retrieved_ids": [
+            24,
+            25,
+            26,
+            23,
+            13
+          ],
+          "relevant_ids": [
+            24
+          ],
+          "scores": [
+            0.710111825,
+            0.41869979999999996,
+            0.38631495000000005,
+            0.38367985000000004,
+            0.30502640000000003
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.125661010155454
+        },
+        {
+          "case_id": "tel-009",
+          "question": "How long should accounts with recent SIM swaps remain under elevated fraud monitoring?",
+          "retrieved_ids": [
+            28,
+            29,
+            17,
+            26,
+            25,
+            8,
+            16
+          ],
+          "relevant_ids": [
+            28
+          ],
+          "scores": [
+            0.6132437,
+            0.54576552,
+            0.46720039999999996,
+            0.35015315,
+            0.3484032,
+            0.3135295,
+            0.30368130000000004
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.581009005894884
+        }
+      ]
+    }
+  ]
+}

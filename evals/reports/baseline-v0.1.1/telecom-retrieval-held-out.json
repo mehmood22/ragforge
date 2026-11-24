@@ -1,0 +1,1652 @@
+{
+  "created_at": "2026-11-24T22:06:36.500824+00:00",
+  "document_id": "572dd3ab-3b70-4508-b97f-467213032f4d",
+  "generation_id": "81535d13-dd6b-43a9-ad4e-676a369bceb8",
+  "dataset": "synthetic_telecom.json",
+  "split": "held_out",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "indexed_chunks": 31,
+  "configurations": [
+    {
+      "top_k": 1,
+      "min_score": 0.0,
+      "case_count": 6,
+      "hit_rate": 0.8333333333333334,
+      "precision": 0.8333333333333334,
+      "recall": 0.6666666666666666,
+      "mrr": 0.8333333333333334,
+      "evidence_coverage": 0.6666666666666666,
+      "mean_latency_ms": 32.474298330877595,
+      "cases": [
+        {
+          "case_id": "tel-013",
+          "question": "Which configuration should an agent inspect if mobile internet stops working after a handset reset?",
+          "retrieved_ids": [
+            6
+          ],
+          "relevant_ids": [
+            5
+          ],
+          "scores": [
+            0.5077284
+          ],
+          "hit_rate": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "evidence_coverage": 0.0,
+          "latency_ms": 28.592615999514237
+        },
+        {
+          "case_id": "tel-014",
+          "question": "How do VoLTE call setup times compare with traditional 3G call setup times?",
+          "retrieved_ids": [
+            19
+          ],
+          "relevant_ids": [
+            19
+          ],
+          "scores": [
+            0.623087885
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.32506298343651
+        },
+        {
+          "case_id": "tel-015",
+          "question": "What mechanism prevents a customer from being billed twice when a payment gateway retries a request?",
+          "retrieved_ids": [
+            25
+          ],
+          "relevant_ids": [
+            25
+          ],
+          "scores": [
+            0.567626415
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.50021999538876
+        },
+        {
+          "case_id": "tel-016",
+          "question": "When are autopay invoices charged, and how long are recently SIM-swapped accounts monitored for fraud?",
+          "retrieved_ids": [
+            24
+          ],
+          "relevant_ids": [
+            24,
+            28
+          ],
+          "scores": [
+            0.6474854
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 0.5,
+          "latency_ms": 45.070278021739796
+        },
+        {
+          "case_id": "tel-017",
+          "question": "Which roaming zone includes Japan, and what is the typical throttled speed of a premium data plan?",
+          "retrieved_ids": [
+            12
+          ],
+          "relevant_ids": [
+            7,
+            12
+          ],
+          "scores": [
+            0.63397938
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 0.5,
+          "latency_ms": 36.92077597952448
+        },
+        {
+          "case_id": "tel-018",
+          "question": "If a customer upgrades their plan halfway through a billing cycle, how is the upgrade charged?",
+          "retrieved_ids": [
+            26
+          ],
+          "relevant_ids": [
+            26
+          ],
+          "scores": [
+            0.5788465
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 32.4368370056618
+        }
+      ]
+    },
+    {
+      "top_k": 2,
+      "min_score": 0.0,
+      "case_count": 6,
+      "hit_rate": 0.8333333333333334,
+      "precision": 0.5,
+      "recall": 0.75,
+      "mrr": 0.8333333333333334,
+      "evidence_coverage": 0.75,
+      "mean_latency_ms": 28.00646449031774,
+      "cases": [
+        {
+          "case_id": "tel-013",
+          "question": "Which configuration should an agent inspect if mobile internet stops working after a handset reset?",
+          "retrieved_ids": [
+            6,
+            4
+          ],
+          "relevant_ids": [
+            5
+          ],
+          "scores": [
+            0.5077284,
+            0.4479033
+          ],
+          "hit_rate": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "evidence_coverage": 0.0,
+          "latency_ms": 24.617513990961015
+        },
+        {
+          "case_id": "tel-014",
+          "question": "How do VoLTE call setup times compare with traditional 3G call setup times?",
+          "retrieved_ids": [
+            19,
+            2
+          ],
+          "relevant_ids": [
+            19
+          ],
+          "scores": [
+            0.623087885,
+            0.530655325
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 38.96600499865599
+        },
+        {
+          "case_id": "tel-015",
+          "question": "What mechanism prevents a customer from being billed twice when a payment gateway retries a request?",
+          "retrieved_ids": [
+            25,
+            24
+          ],
+          "relevant_ids": [
+            25
+          ],
+          "scores": [
+            0.567626415,
+            0.41865385
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 22.68618598463945
+        },
+        {
+          "case_id": "tel-016",
+          "question": "When are autopay invoices charged, and how long are recently SIM-swapped accounts monitored for fraud?",
+          "retrieved_ids": [
+            24,
+            25
+          ],
+          "relevant_ids": [
+            24,
+            28
+          ],
+          "scores": [
+            0.6474854,
+            0.52908328
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 0.5,
+          "latency_ms": 22.849873988889158
+        },
+        {
+          "case_id": "tel-017",
+          "question": "Which roaming zone includes Japan, and what is the typical throttled speed of a premium data plan?",
+          "retrieved_ids": [
+            12,
+            7
+          ],
+          "relevant_ids": [
+            7,
+            12
+          ],
+          "scores": [
+            0.63397938,
+            0.61778765
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.054351987317204
+        },
+        {
+          "case_id": "tel-018",
+          "question": "If a customer upgrades their plan halfway through a billing cycle, how is the upgrade charged?",
+          "retrieved_ids": [
+            26,
+            24
+          ],
+          "relevant_ids": [
+            26
+          ],
+          "scores": [
+            0.5788465,
+            0.57365972
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 31.86485599144362
+        }
+      ]
+    },
+    {
+      "top_k": 3,
+      "min_score": 0.0,
+      "case_count": 6,
+      "hit_rate": 0.8333333333333334,
+      "precision": 0.38888888888888884,
+      "recall": 0.8333333333333334,
+      "mrr": 0.8333333333333334,
+      "evidence_coverage": 0.8333333333333334,
+      "mean_latency_ms": 24.037463328568265,
+      "cases": [
+        {
+          "case_id": "tel-013",
+          "question": "Which configuration should an agent inspect if mobile internet stops working after a handset reset?",
+          "retrieved_ids": [
+            6,
+            4,
+            20
+          ],
+          "relevant_ids": [
+            5
+          ],
+          "scores": [
+            0.5077284,
+            0.4479033,
+            0.41477955
+          ],
+          "hit_rate": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "evidence_coverage": 0.0,
+          "latency_ms": 25.181762990541756
+        },
+        {
+          "case_id": "tel-014",
+          "question": "How do VoLTE call setup times compare with traditional 3G call setup times?",
+          "retrieved_ids": [
+            19,
+            2,
+            1
+          ],
+          "relevant_ids": [
+            19
+          ],
+          "scores": [
+            0.623087885,
+            0.530655325,
+            0.52368915
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.80486999452114
+        },
+        {
+          "case_id": "tel-015",
+          "question": "What mechanism prevents a customer from being billed twice when a payment gateway retries a request?",
+          "retrieved_ids": [
+            25,
+            24,
+            23
+          ],
+          "relevant_ids": [
+            25
+          ],
+          "scores": [
+            0.567626415,
+            0.41865385,
+            0.40425239999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.480991007294506
+        },
+        {
+          "case_id": "tel-016",
+          "question": "When are autopay invoices charged, and how long are recently SIM-swapped accounts monitored for fraud?",
+          "retrieved_ids": [
+            24,
+            25,
+            28
+          ],
+          "relevant_ids": [
+            24,
+            28
+          ],
+          "scores": [
+            0.6474854,
+            0.52908328,
+            0.505499065
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 22.40945299854502
+        },
+        {
+          "case_id": "tel-017",
+          "question": "Which roaming zone includes Japan, and what is the typical throttled speed of a premium data plan?",
+          "retrieved_ids": [
+            12,
+            7,
+            9
+          ],
+          "relevant_ids": [
+            7,
+            12
+          ],
+          "scores": [
+            0.63397938,
+            0.61778765,
+            0.5122944700000001
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 23.763706994941458
+        },
+        {
+          "case_id": "tel-018",
+          "question": "If a customer upgrades their plan halfway through a billing cycle, how is the upgrade charged?",
+          "retrieved_ids": [
+            26,
+            24,
+            25
+          ],
+          "relevant_ids": [
+            26
+          ],
+          "scores": [
+            0.5788465,
+            0.57365972,
+            0.5092422999999999
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 21.583995985565707
+        }
+      ]
+    },
+    {
+      "top_k": 5,
+      "min_score": 0.0,
+      "case_count": 6,
+      "hit_rate": 1.0,
+      "precision": 0.26666666666666666,
+      "recall": 1.0,
+      "mrr": 0.875,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 26.864740837481804,
+      "cases": [
+        {
+          "case_id": "tel-013",
+          "question": "Which configuration should an agent inspect if mobile internet stops working after a handset reset?",
+          "retrieved_ids": [
+            6,
+            4,
+            20,
+            5,
+            11
+          ],
+          "relevant_ids": [
+            5
+          ],
+          "scores": [
+            0.5077284,
+            0.4479033,
+            0.41477955,
+            0.40137015,
+            0.38251219999999997
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 0.25,
+          "evidence_coverage": 1.0,
+          "latency_ms": 28.525457018986344
+        },
+        {
+          "case_id": "tel-014",
+          "question": "How do VoLTE call setup times compare with traditional 3G call setup times?",
+          "retrieved_ids": [
+            19,
+            2,
+            1,
+            20,
+            21
+          ],
+          "relevant_ids": [
+            19
+          ],
+          "scores": [
+            0.623087885,
+            0.530655325,
+            0.52368915,
+            0.5119015,
+            0.48122830000000005
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 23.461320000933483
+        },
+        {
+          "case_id": "tel-015",
+          "question": "What mechanism prevents a customer from being billed twice when a payment gateway retries a request?",
+          "retrieved_ids": [
+            25,
+            24,
+            23,
+            26,
+            8
+          ],
+          "relevant_ids": [
+            25
+          ],
+          "scores": [
+            0.567626415,
+            0.41865385,
+            0.40425239999999996,
+            0.3859637,
+            0.3665378
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.41893400484696
+        },
+        {
+          "case_id": "tel-016",
+          "question": "When are autopay invoices charged, and how long are recently SIM-swapped accounts monitored for fraud?",
+          "retrieved_ids": [
+            24,
+            25,
+            28,
+            23,
+            26
+          ],
+          "relevant_ids": [
+            24,
+            28
+          ],
+          "scores": [
+            0.6474854,
+            0.52908328,
+            0.505499065,
+            0.4826578,
+            0.45548005
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.4,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 30.81215900601819
+        },
+        {
+          "case_id": "tel-017",
+          "question": "Which roaming zone includes Japan, and what is the typical throttled speed of a premium data plan?",
+          "retrieved_ids": [
+            12,
+            7,
+            9,
+            8,
+            11
+          ],
+          "relevant_ids": [
+            7,
+            12
+          ],
+          "scores": [
+            0.63397938,
+            0.61778765,
+            0.5122944700000001,
+            0.48802939999999995,
+            0.48423174999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.4,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.13188001466915
+        },
+        {
+          "case_id": "tel-018",
+          "question": "If a customer upgrades their plan halfway through a billing cycle, how is the upgrade charged?",
+          "retrieved_ids": [
+            26,
+            24,
+            25,
+            23,
+            8
+          ],
+          "relevant_ids": [
+            26
+          ],
+          "scores": [
+            0.5788465,
+            0.57365972,
+            0.5092422999999999,
+            0.42569900000000005,
+            0.4043335
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.838694979436696
+        }
+      ]
+    },
+    {
+      "top_k": 7,
+      "min_score": 0.0,
+      "case_count": 6,
+      "hit_rate": 1.0,
+      "precision": 0.19047619047619047,
+      "recall": 1.0,
+      "mrr": 0.875,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 24.326914664319094,
+      "cases": [
+        {
+          "case_id": "tel-013",
+          "question": "Which configuration should an agent inspect if mobile internet stops working after a handset reset?",
+          "retrieved_ids": [
+            6,
+            4,
+            20,
+            5,
+            11,
+            21,
+            27
+          ],
+          "relevant_ids": [
+            5
+          ],
+          "scores": [
+            0.5077284,
+            0.4479033,
+            0.41477955,
+            0.40137015,
+            0.38251219999999997,
+            0.37202965,
+            0.36452615
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 0.25,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.64645601180382
+        },
+        {
+          "case_id": "tel-014",
+          "question": "How do VoLTE call setup times compare with traditional 3G call setup times?",
+          "retrieved_ids": [
+            19,
+            2,
+            1,
+            20,
+            21,
+            12,
+            22
+          ],
+          "relevant_ids": [
+            19
+          ],
+          "scores": [
+            0.623087885,
+            0.530655325,
+            0.52368915,
+            0.5119015,
+            0.48122830000000005,
+            0.45609469999999996,
+            0.43420574999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.385119992075488
+        },
+        {
+          "case_id": "tel-015",
+          "question": "What mechanism prevents a customer from being billed twice when a payment gateway retries a request?",
+          "retrieved_ids": [
+            25,
+            24,
+            23,
+            26,
+            8,
+            7,
+            28
+          ],
+          "relevant_ids": [
+            25
+          ],
+          "scores": [
+            0.567626415,
+            0.41865385,
+            0.40425239999999996,
+            0.3859637,
+            0.3665378,
+            0.35208205000000004,
+            0.3217249
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.603366997325793
+        },
+        {
+          "case_id": "tel-016",
+          "question": "When are autopay invoices charged, and how long are recently SIM-swapped accounts monitored for fraud?",
+          "retrieved_ids": [
+            24,
+            25,
+            28,
+            23,
+            26,
+            29,
+            30
+          ],
+          "relevant_ids": [
+            24,
+            28
+          ],
+          "scores": [
+            0.6474854,
+            0.52908328,
+            0.505499065,
+            0.4826578,
+            0.45548005,
+            0.43697335000000004,
+            0.3247451
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2857142857142857,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 23.974087001988664
+        },
+        {
+          "case_id": "tel-017",
+          "question": "Which roaming zone includes Japan, and what is the typical throttled speed of a premium data plan?",
+          "retrieved_ids": [
+            12,
+            7,
+            9,
+            8,
+            11,
+            14,
+            13
+          ],
+          "relevant_ids": [
+            7,
+            12
+          ],
+          "scores": [
+            0.63397938,
+            0.61778765,
+            0.5122944700000001,
+            0.48802939999999995,
+            0.48423174999999996,
+            0.46538579999999996,
+            0.46129489999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2857142857142857,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 22.360888979164883
+        },
+        {
+          "case_id": "tel-018",
+          "question": "If a customer upgrades their plan halfway through a billing cycle, how is the upgrade charged?",
+          "retrieved_ids": [
+            26,
+            24,
+            25,
+            23,
+            8,
+            7,
+            9
+          ],
+          "relevant_ids": [
+            26
+          ],
+          "scores": [
+            0.5788465,
+            0.57365972,
+            0.5092422999999999,
+            0.42569900000000005,
+            0.4043335,
+            0.3904392,
+            0.354545
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 23.991569003555924
+        }
+      ]
+    },
+    {
+      "top_k": 10,
+      "min_score": 0.0,
+      "case_count": 6,
+      "hit_rate": 1.0,
+      "precision": 0.13333333333333333,
+      "recall": 1.0,
+      "mrr": 0.875,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 25.95558033499401,
+      "cases": [
+        {
+          "case_id": "tel-013",
+          "question": "Which configuration should an agent inspect if mobile internet stops working after a handset reset?",
+          "retrieved_ids": [
+            6,
+            4,
+            20,
+            5,
+            11,
+            21,
+            27,
+            0,
+            1,
+            14
+          ],
+          "relevant_ids": [
+            5
+          ],
+          "scores": [
+            0.5077284,
+            0.4479033,
+            0.41477955,
+            0.40137015,
+            0.38251219999999997,
+            0.37202965,
+            0.36452615,
+            0.3531468,
+            0.32986190000000004,
+            0.3086831
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 0.25,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.76393202273175
+        },
+        {
+          "case_id": "tel-014",
+          "question": "How do VoLTE call setup times compare with traditional 3G call setup times?",
+          "retrieved_ids": [
+            19,
+            2,
+            1,
+            20,
+            21,
+            12,
+            22,
+            13,
+            0,
+            23
+          ],
+          "relevant_ids": [
+            19
+          ],
+          "scores": [
+            0.623087885,
+            0.530655325,
+            0.52368915,
+            0.5119015,
+            0.48122830000000005,
+            0.45609469999999996,
+            0.43420574999999995,
+            0.4091867,
+            0.4021287,
+            0.39466880000000004
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.82910398673266
+        },
+        {
+          "case_id": "tel-015",
+          "question": "What mechanism prevents a customer from being billed twice when a payment gateway retries a request?",
+          "retrieved_ids": [
+            25,
+            24,
+            23,
+            26,
+            8,
+            7,
+            28,
+            21,
+            29,
+            30
+          ],
+          "relevant_ids": [
+            25
+          ],
+          "scores": [
+            0.567626415,
+            0.41865385,
+            0.40425239999999996,
+            0.3859637,
+            0.3665378,
+            0.35208205000000004,
+            0.3217249,
+            0.30630685,
+            0.28515745000000003,
+            0.2761013
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.786964008351788
+        },
+        {
+          "case_id": "tel-016",
+          "question": "When are autopay invoices charged, and how long are recently SIM-swapped accounts monitored for fraud?",
+          "retrieved_ids": [
+            24,
+            25,
+            28,
+            23,
+            26,
+            29,
+            30,
+            17,
+            13,
+            11
+          ],
+          "relevant_ids": [
+            24,
+            28
+          ],
+          "scores": [
+            0.6474854,
+            0.52908328,
+            0.505499065,
+            0.4826578,
+            0.45548005,
+            0.43697335000000004,
+            0.3247451,
+            0.31991495000000003,
+            0.30423069999999997,
+            0.30058149999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.454582006204873
+        },
+        {
+          "case_id": "tel-017",
+          "question": "Which roaming zone includes Japan, and what is the typical throttled speed of a premium data plan?",
+          "retrieved_ids": [
+            12,
+            7,
+            9,
+            8,
+            11,
+            14,
+            13,
+            1,
+            2,
+            3
+          ],
+          "relevant_ids": [
+            7,
+            12
+          ],
+          "scores": [
+            0.63397938,
+            0.61778765,
+            0.5122944700000001,
+            0.48802939999999995,
+            0.48423174999999996,
+            0.46538579999999996,
+            0.46129489999999995,
+            0.43691145,
+            0.39249825000000005,
+            0.38721025
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 22.04612098284997
+        },
+        {
+          "case_id": "tel-018",
+          "question": "If a customer upgrades their plan halfway through a billing cycle, how is the upgrade charged?",
+          "retrieved_ids": [
+            26,
+            24,
+            25,
+            23,
+            8,
+            7,
+            9,
+            13,
+            11,
+            12
+          ],
+          "relevant_ids": [
+            26
+          ],
+          "scores": [
+            0.5788465,
+            0.57365972,
+            0.5092422999999999,
+            0.42569900000000005,
+            0.4043335,
+            0.3904392,
+            0.354545,
+            0.27985800000000005,
+            0.2445427,
+            0.2247715
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.85277900309302
+        }
+      ]
+    },
+    {
+      "top_k": 7,
+      "min_score": 0.15,
+      "case_count": 6,
+      "hit_rate": 1.0,
+      "precision": 0.19047619047619047,
+      "recall": 1.0,
+      "mrr": 0.875,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 26.647040494329605,
+      "cases": [
+        {
+          "case_id": "tel-013",
+          "question": "Which configuration should an agent inspect if mobile internet stops working after a handset reset?",
+          "retrieved_ids": [
+            6,
+            4,
+            20,
+            5,
+            11,
+            21,
+            27
+          ],
+          "relevant_ids": [
+            5
+          ],
+          "scores": [
+            0.5077284,
+            0.4479033,
+            0.41477955,
+            0.40137015,
+            0.38251219999999997,
+            0.37202965,
+            0.36452615
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 0.25,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.963561998447403
+        },
+        {
+          "case_id": "tel-014",
+          "question": "How do VoLTE call setup times compare with traditional 3G call setup times?",
+          "retrieved_ids": [
+            19,
+            2,
+            1,
+            20,
+            21,
+            12,
+            22
+          ],
+          "relevant_ids": [
+            19
+          ],
+          "scores": [
+            0.623087885,
+            0.530655325,
+            0.52368915,
+            0.5119015,
+            0.48122830000000005,
+            0.45609469999999996,
+            0.43420574999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.1042859822046
+        },
+        {
+          "case_id": "tel-015",
+          "question": "What mechanism prevents a customer from being billed twice when a payment gateway retries a request?",
+          "retrieved_ids": [
+            25,
+            24,
+            23,
+            26,
+            8,
+            7,
+            28
+          ],
+          "relevant_ids": [
+            25
+          ],
+          "scores": [
+            0.567626415,
+            0.41865385,
+            0.40425239999999996,
+            0.3859637,
+            0.3665378,
+            0.35208205000000004,
+            0.3217249
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 31.987930997274816
+        },
+        {
+          "case_id": "tel-016",
+          "question": "When are autopay invoices charged, and how long are recently SIM-swapped accounts monitored for fraud?",
+          "retrieved_ids": [
+            24,
+            25,
+            28,
+            23,
+            26,
+            29,
+            30
+          ],
+          "relevant_ids": [
+            24,
+            28
+          ],
+          "scores": [
+            0.6474854,
+            0.52908328,
+            0.505499065,
+            0.4826578,
+            0.45548005,
+            0.43697335000000004,
+            0.3247451
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2857142857142857,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 23.804905998986214
+        },
+        {
+          "case_id": "tel-017",
+          "question": "Which roaming zone includes Japan, and what is the typical throttled speed of a premium data plan?",
+          "retrieved_ids": [
+            12,
+            7,
+            9,
+            8,
+            11,
+            14,
+            13
+          ],
+          "relevant_ids": [
+            7,
+            12
+          ],
+          "scores": [
+            0.63397938,
+            0.61778765,
+            0.5122944700000001,
+            0.48802939999999995,
+            0.48423174999999996,
+            0.46538579999999996,
+            0.46129489999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2857142857142857,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.124519986798987
+        },
+        {
+          "case_id": "tel-018",
+          "question": "If a customer upgrades their plan halfway through a billing cycle, how is the upgrade charged?",
+          "retrieved_ids": [
+            26,
+            24,
+            25,
+            23,
+            8,
+            7,
+            9
+          ],
+          "relevant_ids": [
+            26
+          ],
+          "scores": [
+            0.5788465,
+            0.57365972,
+            0.5092422999999999,
+            0.42569900000000005,
+            0.4043335,
+            0.3904392,
+            0.354545
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.897038002265617
+        }
+      ]
+    },
+    {
+      "top_k": 7,
+      "min_score": 0.2,
+      "case_count": 6,
+      "hit_rate": 1.0,
+      "precision": 0.19047619047619047,
+      "recall": 1.0,
+      "mrr": 0.875,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 23.41697683732491,
+      "cases": [
+        {
+          "case_id": "tel-013",
+          "question": "Which configuration should an agent inspect if mobile internet stops working after a handset reset?",
+          "retrieved_ids": [
+            6,
+            4,
+            20,
+            5,
+            11,
+            21,
+            27
+          ],
+          "relevant_ids": [
+            5
+          ],
+          "scores": [
+            0.5077284,
+            0.4479033,
+            0.41477955,
+            0.40137015,
+            0.38251219999999997,
+            0.37202965,
+            0.36452615
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 0.25,
+          "evidence_coverage": 1.0,
+          "latency_ms": 22.8431349969469
+        },
+        {
+          "case_id": "tel-014",
+          "question": "How do VoLTE call setup times compare with traditional 3G call setup times?",
+          "retrieved_ids": [
+            19,
+            2,
+            1,
+            20,
+            21,
+            12,
+            22
+          ],
+          "relevant_ids": [
+            19
+          ],
+          "scores": [
+            0.623087885,
+            0.530655325,
+            0.52368915,
+            0.5119015,
+            0.48122830000000005,
+            0.45609469999999996,
+            0.43420574999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 21.503855008631945
+        },
+        {
+          "case_id": "tel-015",
+          "question": "What mechanism prevents a customer from being billed twice when a payment gateway retries a request?",
+          "retrieved_ids": [
+            25,
+            24,
+            23,
+            26,
+            8,
+            7,
+            28
+          ],
+          "relevant_ids": [
+            25
+          ],
+          "scores": [
+            0.567626415,
+            0.41865385,
+            0.40425239999999996,
+            0.3859637,
+            0.3665378,
+            0.35208205000000004,
+            0.3217249
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 23.85107200825587
+        },
+        {
+          "case_id": "tel-016",
+          "question": "When are autopay invoices charged, and how long are recently SIM-swapped accounts monitored for fraud?",
+          "retrieved_ids": [
+            24,
+            25,
+            28,
+            23,
+            26,
+            29,
+            30
+          ],
+          "relevant_ids": [
+            24,
+            28
+          ],
+          "scores": [
+            0.6474854,
+            0.52908328,
+            0.505499065,
+            0.4826578,
+            0.45548005,
+            0.43697335000000004,
+            0.3247451
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2857142857142857,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.294244987890124
+        },
+        {
+          "case_id": "tel-017",
+          "question": "Which roaming zone includes Japan, and what is the typical throttled speed of a premium data plan?",
+          "retrieved_ids": [
+            12,
+            7,
+            9,
+            8,
+            11,
+            14,
+            13
+          ],
+          "relevant_ids": [
+            7,
+            12
+          ],
+          "scores": [
+            0.63397938,
+            0.61778765,
+            0.5122944700000001,
+            0.48802939999999995,
+            0.48423174999999996,
+            0.46538579999999996,
+            0.46129489999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2857142857142857,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.084788019536063
+        },
+        {
+          "case_id": "tel-018",
+          "question": "If a customer upgrades their plan halfway through a billing cycle, how is the upgrade charged?",
+          "retrieved_ids": [
+            26,
+            24,
+            25,
+            23,
+            8,
+            7,
+            9
+          ],
+          "relevant_ids": [
+            26
+          ],
+          "scores": [
+            0.5788465,
+            0.57365972,
+            0.5092422999999999,
+            0.42569900000000005,
+            0.4043335,
+            0.3904392,
+            0.354545
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 22.924766002688557
+        }
+      ]
+    },
+    {
+      "top_k": 7,
+      "min_score": 0.3,
+      "case_count": 6,
+      "hit_rate": 1.0,
+      "precision": 0.19047619047619047,
+      "recall": 1.0,
+      "mrr": 0.875,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 28.63560800324194,
+      "cases": [
+        {
+          "case_id": "tel-013",
+          "question": "Which configuration should an agent inspect if mobile internet stops working after a handset reset?",
+          "retrieved_ids": [
+            6,
+            4,
+            20,
+            5,
+            11,
+            21,
+            27
+          ],
+          "relevant_ids": [
+            5
+          ],
+          "scores": [
+            0.5077284,
+            0.4479033,
+            0.41477955,
+            0.40137015,
+            0.38251219999999997,
+            0.37202965,
+            0.36452615
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 0.25,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.04501600540243
+        },
+        {
+          "case_id": "tel-014",
+          "question": "How do VoLTE call setup times compare with traditional 3G call setup times?",
+          "retrieved_ids": [
+            19,
+            2,
+            1,
+            20,
+            21,
+            12,
+            22
+          ],
+          "relevant_ids": [
+            19
+          ],
+          "scores": [
+            0.623087885,
+            0.530655325,
+            0.52368915,
+            0.5119015,
+            0.48122830000000005,
+            0.45609469999999996,
+            0.43420574999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.653102995827794
+        },
+        {
+          "case_id": "tel-015",
+          "question": "What mechanism prevents a customer from being billed twice when a payment gateway retries a request?",
+          "retrieved_ids": [
+            25,
+            24,
+            23,
+            26,
+            8,
+            7,
+            28
+          ],
+          "relevant_ids": [
+            25
+          ],
+          "scores": [
+            0.567626415,
+            0.41865385,
+            0.40425239999999996,
+            0.3859637,
+            0.3665378,
+            0.35208205000000004,
+            0.3217249
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.484026999445632
+        },
+        {
+          "case_id": "tel-016",
+          "question": "When are autopay invoices charged, and how long are recently SIM-swapped accounts monitored for fraud?",
+          "retrieved_ids": [
+            24,
+            25,
+            28,
+            23,
+            26,
+            29,
+            30
+          ],
+          "relevant_ids": [
+            24,
+            28
+          ],
+          "scores": [
+            0.6474854,
+            0.52908328,
+            0.505499065,
+            0.4826578,
+            0.45548005,
+            0.43697335000000004,
+            0.3247451
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2857142857142857,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 41.79949199897237
+        },
+        {
+          "case_id": "tel-017",
+          "question": "Which roaming zone includes Japan, and what is the typical throttled speed of a premium data plan?",
+          "retrieved_ids": [
+            12,
+            7,
+            9,
+            8,
+            11,
+            14,
+            13
+          ],
+          "relevant_ids": [
+            7,
+            12
+          ],
+          "scores": [
+            0.63397938,
+            0.61778765,
+            0.5122944700000001,
+            0.48802939999999995,
+            0.48423174999999996,
+            0.46538579999999996,
+            0.46129489999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2857142857142857,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.10468299826607
+        },
+        {
+          "case_id": "tel-018",
+          "question": "If a customer upgrades their plan halfway through a billing cycle, how is the upgrade charged?",
+          "retrieved_ids": [
+            26,
+            24,
+            25,
+            23,
+            8,
+            7,
+            9
+          ],
+          "relevant_ids": [
+            26
+          ],
+          "scores": [
+            0.5788465,
+            0.57365972,
+            0.5092422999999999,
+            0.42569900000000005,
+            0.4043335,
+            0.3904392,
+            0.354545
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.72732702153735
+        }
+      ]
+    }
+  ]
+}

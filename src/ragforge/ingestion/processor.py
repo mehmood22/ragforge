@@ -5,6 +5,7 @@ from uuid import UUID
 
 from ragforge.core.config import Settings
 from ragforge.infrastructure.chroma import get_chroma_client
+from ragforge.infrastructure.collection import validate_collection
 from ragforge.ingestion.chunker import DocumentChunker
 from ragforge.ingestion.embeddings import get_embedding_service
 from ragforge.ingestion.pdf_loader import PDFLoader
@@ -57,6 +58,17 @@ class PDFProcessor:
             metadata={
                 "embedding_model": self.settings.embedding_model,
             },
+            configuration={
+                "hnsw": {
+                    "space": "l2",
+                },
+            },
+        )
+
+        validate_collection(
+            metadata=collection.metadata,
+            configuration=collection.configuration,
+            expected_embedding_model=self.settings.embedding_model,
         )
 
         batch_size = 32

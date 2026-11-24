@@ -1,0 +1,922 @@
+{
+  "created_at": "2026-11-24T21:10:19.217099+00:00",
+  "document_id": "7db2f661-59f8-42db-b743-0f557bd8b5ac",
+  "generation_id": "60a803a7-9d4a-4eef-99f8-a944691b7bc5",
+  "dataset": "synthetic_cv.json",
+  "split": "tuning",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "indexed_chunks": 3,
+  "configurations": [
+    {
+      "top_k": 1,
+      "min_score": 0.0,
+      "case_count": 4,
+      "hit_rate": 0.5,
+      "precision": 0.5,
+      "recall": 0.5,
+      "mrr": 0.5,
+      "evidence_coverage": 0.5,
+      "mean_latency_ms": 29.922611749498174,
+      "cases": [
+        {
+          "case_id": "cv-001",
+          "question": "Who is Dragoon Pete?",
+          "retrieved_ids": [
+            0
+          ],
+          "relevant_ids": [
+            0
+          ],
+          "scores": [
+            0.52979785
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 31.83403197908774
+        },
+        {
+          "case_id": "cv-002",
+          "question": "Which company did Dragoon work for immediately before Northstar Mobility?",
+          "retrieved_ids": [
+            0
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.4015417
+          ],
+          "hit_rate": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "evidence_coverage": 0.0,
+          "latency_ms": 29.375197016634047
+        },
+        {
+          "case_id": "cv-003",
+          "question": "What experience does Dragoon have with Apache Kafka?",
+          "retrieved_ids": [
+            1
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.5767697700000001
+          ],
+          "hit_rate": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 28.55756299686618
+        },
+        {
+          "case_id": "cv-004",
+          "question": "What degrees has Dragoon completed?",
+          "retrieved_ids": [
+            0
+          ],
+          "relevant_ids": [
+            2
+          ],
+          "scores": [
+            0.37243305000000004
+          ],
+          "hit_rate": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "reciprocal_rank": 0.0,
+          "evidence_coverage": 0.0,
+          "latency_ms": 29.923655005404726
+        }
+      ]
+    },
+    {
+      "top_k": 2,
+      "min_score": 0.0,
+      "case_count": 4,
+      "hit_rate": 1.0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "mrr": 0.75,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 29.8365069902502,
+      "cases": [
+        {
+          "case_id": "cv-001",
+          "question": "Who is Dragoon Pete?",
+          "retrieved_ids": [
+            0,
+            2
+          ],
+          "relevant_ids": [
+            0
+          ],
+          "scores": [
+            0.52979785,
+            0.23792654999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.73891100473702
+        },
+        {
+          "case_id": "cv-002",
+          "question": "Which company did Dragoon work for immediately before Northstar Mobility?",
+          "retrieved_ids": [
+            0,
+            1
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.4015417,
+            0.37348519999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 36.31001597386785
+        },
+        {
+          "case_id": "cv-003",
+          "question": "What experience does Dragoon have with Apache Kafka?",
+          "retrieved_ids": [
+            1,
+            0
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.5767697700000001,
+            0.48795035
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 30.14286598772742
+        },
+        {
+          "case_id": "cv-004",
+          "question": "What degrees has Dragoon completed?",
+          "retrieved_ids": [
+            0,
+            2
+          ],
+          "relevant_ids": [
+            2
+          ],
+          "scores": [
+            0.37243305000000004,
+            0.33758069999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.154234994668514
+        }
+      ]
+    },
+    {
+      "top_k": 3,
+      "min_score": 0.0,
+      "case_count": 4,
+      "hit_rate": 1.0,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "mrr": 0.75,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 27.148467001097742,
+      "cases": [
+        {
+          "case_id": "cv-001",
+          "question": "Who is Dragoon Pete?",
+          "retrieved_ids": [
+            0,
+            2,
+            1
+          ],
+          "relevant_ids": [
+            0
+          ],
+          "scores": [
+            0.52979785,
+            0.23792654999999996,
+            0.19274309999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.940618012100458
+        },
+        {
+          "case_id": "cv-002",
+          "question": "Which company did Dragoon work for immediately before Northstar Mobility?",
+          "retrieved_ids": [
+            0,
+            1,
+            2
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.4015417,
+            0.37348519999999996,
+            0.28540544999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 29.41959199961275
+        },
+        {
+          "case_id": "cv-003",
+          "question": "What experience does Dragoon have with Apache Kafka?",
+          "retrieved_ids": [
+            1,
+            0,
+            2
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.5767697700000001,
+            0.48795035,
+            0.37620739999999997
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.712920003570616
+        },
+        {
+          "case_id": "cv-004",
+          "question": "What degrees has Dragoon completed?",
+          "retrieved_ids": [
+            0,
+            2,
+            1
+          ],
+          "relevant_ids": [
+            2
+          ],
+          "scores": [
+            0.37243305000000004,
+            0.33758069999999996,
+            0.27960339999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.520737989107147
+        }
+      ]
+    },
+    {
+      "top_k": 5,
+      "min_score": 0.0,
+      "case_count": 4,
+      "hit_rate": 1.0,
+      "precision": 0.2,
+      "recall": 1.0,
+      "mrr": 0.75,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 28.3610587430303,
+      "cases": [
+        {
+          "case_id": "cv-001",
+          "question": "Who is Dragoon Pete?",
+          "retrieved_ids": [
+            0,
+            2,
+            1
+          ],
+          "relevant_ids": [
+            0
+          ],
+          "scores": [
+            0.52979785,
+            0.23792654999999996,
+            0.19274309999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 28.07611698517576
+        },
+        {
+          "case_id": "cv-002",
+          "question": "Which company did Dragoon work for immediately before Northstar Mobility?",
+          "retrieved_ids": [
+            0,
+            1,
+            2
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.4015417,
+            0.37348519999999996,
+            0.28540544999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 28.996923007071018
+        },
+        {
+          "case_id": "cv-003",
+          "question": "What experience does Dragoon have with Apache Kafka?",
+          "retrieved_ids": [
+            1,
+            0,
+            2
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.5767697700000001,
+            0.48795035,
+            0.37620739999999997
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 30.109240004094318
+        },
+        {
+          "case_id": "cv-004",
+          "question": "What degrees has Dragoon completed?",
+          "retrieved_ids": [
+            0,
+            2,
+            1
+          ],
+          "relevant_ids": [
+            2
+          ],
+          "scores": [
+            0.37243305000000004,
+            0.33758069999999996,
+            0.27960339999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.2,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.2619549757801
+        }
+      ]
+    },
+    {
+      "top_k": 7,
+      "min_score": 0.0,
+      "case_count": 4,
+      "hit_rate": 1.0,
+      "precision": 0.14285714285714285,
+      "recall": 1.0,
+      "mrr": 0.75,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 28.79569876677124,
+      "cases": [
+        {
+          "case_id": "cv-001",
+          "question": "Who is Dragoon Pete?",
+          "retrieved_ids": [
+            0,
+            2,
+            1
+          ],
+          "relevant_ids": [
+            0
+          ],
+          "scores": [
+            0.52979785,
+            0.23792654999999996,
+            0.19274309999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 30.117344023892656
+        },
+        {
+          "case_id": "cv-002",
+          "question": "Which company did Dragoon work for immediately before Northstar Mobility?",
+          "retrieved_ids": [
+            0,
+            1,
+            2
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.4015417,
+            0.37348519999999996,
+            0.28540544999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 29.823898017639294
+        },
+        {
+          "case_id": "cv-003",
+          "question": "What experience does Dragoon have with Apache Kafka?",
+          "retrieved_ids": [
+            1,
+            0,
+            2
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.5767697700000001,
+            0.48795035,
+            0.37620739999999997
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 30.281392013421282
+        },
+        {
+          "case_id": "cv-004",
+          "question": "What degrees has Dragoon completed?",
+          "retrieved_ids": [
+            0,
+            2,
+            1
+          ],
+          "relevant_ids": [
+            2
+          ],
+          "scores": [
+            0.37243305000000004,
+            0.33758069999999996,
+            0.27960339999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.96016101213172
+        }
+      ]
+    },
+    {
+      "top_k": 10,
+      "min_score": 0.0,
+      "case_count": 4,
+      "hit_rate": 1.0,
+      "precision": 0.1,
+      "recall": 1.0,
+      "mrr": 0.75,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 28.744522998749744,
+      "cases": [
+        {
+          "case_id": "cv-001",
+          "question": "Who is Dragoon Pete?",
+          "retrieved_ids": [
+            0,
+            2,
+            1
+          ],
+          "relevant_ids": [
+            0
+          ],
+          "scores": [
+            0.52979785,
+            0.23792654999999996,
+            0.19274309999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.292210997780785
+        },
+        {
+          "case_id": "cv-002",
+          "question": "Which company did Dragoon work for immediately before Northstar Mobility?",
+          "retrieved_ids": [
+            0,
+            1,
+            2
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.4015417,
+            0.37348519999999996,
+            0.28540544999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 31.37274199980311
+        },
+        {
+          "case_id": "cv-003",
+          "question": "What experience does Dragoon have with Apache Kafka?",
+          "retrieved_ids": [
+            1,
+            0,
+            2
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.5767697700000001,
+            0.48795035,
+            0.37620739999999997
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 31.13759498228319
+        },
+        {
+          "case_id": "cv-004",
+          "question": "What degrees has Dragoon completed?",
+          "retrieved_ids": [
+            0,
+            2,
+            1
+          ],
+          "relevant_ids": [
+            2
+          ],
+          "scores": [
+            0.37243305000000004,
+            0.33758069999999996,
+            0.27960339999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.1,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 26.17554401513189
+        }
+      ]
+    },
+    {
+      "top_k": 7,
+      "min_score": 0.15,
+      "case_count": 4,
+      "hit_rate": 1.0,
+      "precision": 0.14285714285714285,
+      "recall": 1.0,
+      "mrr": 0.75,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 28.973031498026103,
+      "cases": [
+        {
+          "case_id": "cv-001",
+          "question": "Who is Dragoon Pete?",
+          "retrieved_ids": [
+            0,
+            2,
+            1
+          ],
+          "relevant_ids": [
+            0
+          ],
+          "scores": [
+            0.52979785,
+            0.23792654999999996,
+            0.19274309999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 30.066323990467936
+        },
+        {
+          "case_id": "cv-002",
+          "question": "Which company did Dragoon work for immediately before Northstar Mobility?",
+          "retrieved_ids": [
+            0,
+            1,
+            2
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.4015417,
+            0.37348519999999996,
+            0.28540544999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 30.870315997162834
+        },
+        {
+          "case_id": "cv-003",
+          "question": "What experience does Dragoon have with Apache Kafka?",
+          "retrieved_ids": [
+            1,
+            0,
+            2
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.5767697700000001,
+            0.48795035,
+            0.37620739999999997
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 30.977791000623256
+        },
+        {
+          "case_id": "cv-004",
+          "question": "What degrees has Dragoon completed?",
+          "retrieved_ids": [
+            0,
+            2,
+            1
+          ],
+          "relevant_ids": [
+            2
+          ],
+          "scores": [
+            0.37243305000000004,
+            0.33758069999999996,
+            0.27960339999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 23.977695003850386
+        }
+      ]
+    },
+    {
+      "top_k": 7,
+      "min_score": 0.2,
+      "case_count": 4,
+      "hit_rate": 1.0,
+      "precision": 0.14285714285714285,
+      "recall": 1.0,
+      "mrr": 0.75,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 26.35387949703727,
+      "cases": [
+        {
+          "case_id": "cv-001",
+          "question": "Who is Dragoon Pete?",
+          "retrieved_ids": [
+            0,
+            2
+          ],
+          "relevant_ids": [
+            0
+          ],
+          "scores": [
+            0.52979785,
+            0.23792654999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.729969998588786
+        },
+        {
+          "case_id": "cv-002",
+          "question": "Which company did Dragoon work for immediately before Northstar Mobility?",
+          "retrieved_ids": [
+            0,
+            1,
+            2
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.4015417,
+            0.37348519999999996,
+            0.28540544999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 30.034049006644636
+        },
+        {
+          "case_id": "cv-003",
+          "question": "What experience does Dragoon have with Apache Kafka?",
+          "retrieved_ids": [
+            1,
+            0,
+            2
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.5767697700000001,
+            0.48795035,
+            0.37620739999999997
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 27.044742979342118
+        },
+        {
+          "case_id": "cv-004",
+          "question": "What degrees has Dragoon completed?",
+          "retrieved_ids": [
+            0,
+            2,
+            1
+          ],
+          "relevant_ids": [
+            2
+          ],
+          "scores": [
+            0.37243305000000004,
+            0.33758069999999996,
+            0.27960339999999995
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 23.606756003573537
+        }
+      ]
+    },
+    {
+      "top_k": 7,
+      "min_score": 0.3,
+      "case_count": 4,
+      "hit_rate": 1.0,
+      "precision": 0.14285714285714285,
+      "recall": 1.0,
+      "mrr": 0.75,
+      "evidence_coverage": 1.0,
+      "mean_latency_ms": 29.15798324829666,
+      "cases": [
+        {
+          "case_id": "cv-001",
+          "question": "Who is Dragoon Pete?",
+          "retrieved_ids": [
+            0
+          ],
+          "relevant_ids": [
+            0
+          ],
+          "scores": [
+            0.52979785
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 24.935900000855327
+        },
+        {
+          "case_id": "cv-002",
+          "question": "Which company did Dragoon work for immediately before Northstar Mobility?",
+          "retrieved_ids": [
+            0,
+            1
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.4015417,
+            0.37348519999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 25.947593996534124
+        },
+        {
+          "case_id": "cv-003",
+          "question": "What experience does Dragoon have with Apache Kafka?",
+          "retrieved_ids": [
+            1,
+            0,
+            2
+          ],
+          "relevant_ids": [
+            1
+          ],
+          "scores": [
+            0.5767697700000001,
+            0.48795035,
+            0.37620739999999997
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0,
+          "evidence_coverage": 1.0,
+          "latency_ms": 29.906461015343666
+        },
+        {
+          "case_id": "cv-004",
+          "question": "What degrees has Dragoon completed?",
+          "retrieved_ids": [
+            0,
+            2
+          ],
+          "relevant_ids": [
+            2
+          ],
+          "scores": [
+            0.37243305000000004,
+            0.33758069999999996
+          ],
+          "hit_rate": 1.0,
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5,
+          "evidence_coverage": 1.0,
+          "latency_ms": 35.84197798045352
+        }
+      ]
+    }
+  ]
+}
