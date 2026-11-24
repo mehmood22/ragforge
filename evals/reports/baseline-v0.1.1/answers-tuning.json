@@ -1,0 +1,197 @@
+{
+  "created_at": "2026-11-24T21:39:43.395164+00:00",
+  "document_id": "7db2f661-59f8-42db-b743-0f557bd8b5ac",
+  "generation_id": "60a803a7-9d4a-4eef-99f8-a944691b7bc5",
+  "dataset": "synthetic_cv.json",
+  "split": "tuning",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "llm_model": "qwen/qwen3.8-27b",
+  "top_k": 7,
+  "min_score": 0.0,
+  "case_count": 6,
+  "mean_latency_ms": 797.5678096651487,
+  "summary": {
+    "status_correct": 1.0,
+    "required_facts_present": 1.0,
+    "evidence_coverage": 1.0,
+    "citation_contract_valid": 1.0,
+    "correct_abstention": 1.0,
+    "false_answer": 0.0,
+    "false_abstention": 0.0,
+    "passed": 1.0
+  },
+  "cases": [
+    {
+      "case_id": "cv-001",
+      "question": "Who is Dragoon Pete?",
+      "reference_answer": "Dragoon Pete is a Senior Backend and AI Engineer with eight years of software engineering experience.",
+      "expected_status": "answered",
+      "response": {
+        "answer": "Dragoon Pete is a Senior Backend and AI Engineer with eight years of professional software engineering experience. She specializes in distributed systems, backend APIs, and retrieval-augmented generation applications. Her technical skills include programming in Python, Java, and TypeScript; working with frameworks such as FastAPI, Spring Boot, and NestJS; and using databases like PostgreSQL, MongoDB, and Redis. She has professional experience at Northstar Mobility (Senior Software Engineer,",
+        "status": "answered",
+        "sources": [
+          {
+            "citation": 1,
+            "page_number": 1,
+            "chunk_index": 0,
+            "content": "Dragoon\n \nPete\n \nSenior\n \nBackend\n \n&\n \nAI\n \nEngineer\n \nFictional\n \nprofessional\n \nprofile\n \n-\n \nRAGForge\n \nevaluation\n \nfixture\n \n \nProfessional\n \nSummary\n \nDragoon\n \nPete\n \nis\n \na\n \nSenior\n \nBackend\n \nand\n \nAI\n \nEngineer\n \nwith\n \neight\n \nyears\n \nof\n \nprofessional\n \nsoftware\n \nengineering\n \nexperience.\n \nShe\n \nspecializes\n \nin\n \ndistributed\n \nsystems,\n \nbackend\n \nAPIs\n \nand\n \nretrieval-\naugmented\n \ngeneration\n \napplications.\n \n \nTechnical\n \nSkills\n \nProgramming\n \nlanguages:\n \nPython,\n \nJava\n \nand\n \nTypeScript.\n \nFrameworks:\n \nFastAPI,\n \nSpring\n \nBoot\n \nand\n \nNestJS.\n \nDatabases:\n \nPostgreSQL,\n \nMongoDB\n \nand\n \nRedis.\n \nMessaging:\n \nApache\n \nKafka\n \nand\n \nRabbitMQ.\n \nInfrastructure:\n \nDocker,\n \nKubernetes\n \nand\n \nAWS.\n \n \nProfessional\n \nExperience\n \nNorthstar\n \nMobility\n \n-\n \nSenior"
+          },
+          {
+            "citation": 3,
+            "page_number": 1,
+            "chunk_index": 1,
+            "content": "Infrastructure:\n \nDocker,\n \nKubernetes\n \nand\n \nAWS.\n \n \nProfessional\n \nExperience\n \nNorthstar\n \nMobility\n \n-\n \nSenior\n \nSoftware\n \nEngineer\n \nJuly\n \n2024\n \n-\n \nPresent\n \nDragoon\n \ndeveloped\n \nevent-\ndriven\n \ntrip\n \nprocessing\n \nservices\n \nusing\n \nApache\n \nKafka.\n \nShe\n \ndesigned\n \nREST\n \nAPIs\n \nusing\n \nFastAPI\n \nand\n \nimproved\n \ndatabase\n \nquery\n \nperformance\n \nby\n \n35\n \npercent.\n \nShe\n \nalso\n \nimplemented\n \na\n \ndocument\n \nretrieval\n \nassistant\n \nusing\n \nChromaDB\n \nand\n \nLangGraph.\n \n \nBluewave\n \nCommerce\n \n-\n \nBackend\n \nEngineer\n \nJanuary\n \n2021\n \n-\n \nJune\n \n2024\n \nDragoon\n \ndeveloped\n \norder\n \nmanagement\n \nmicroservices\n \nusing\n \nJava\n \nand\n \nSpring\n \nBoot.\n \nShe\n \nimplemented\n \nRedis\n \ncaching\n \nand\n \nasynchronous\n \npayment\n \nprocessing\n \nusing\n \nRabbitMQ.\n \n \nCedar\n \nTechnologies\n \n-"
+          }
+        ]
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": true,
+        "evidence_coverage": 1.0,
+        "citation_contract_valid": true,
+        "correct_abstention": null,
+        "false_answer": null,
+        "false_abstention": false,
+        "passed": true
+      },
+      "latency_ms": 1528.187521995278
+    },
+    {
+      "case_id": "cv-002",
+      "question": "Which company did Dragoon work for immediately before Northstar Mobility?",
+      "reference_answer": "Bluewave Commerce, where he worked from January 2021 to June 2024.",
+      "expected_status": "answered",
+      "response": {
+        "answer": "Dragoon worked for Bluewave Commerce immediately before Northstar Mobility. She was a Backend Engineer at Bluewave Commerce from January 2021 to June 2024, and then joined Northstar Mobility as a Senior Software Engineer in July 2024.",
+        "status": "answered",
+        "sources": [
+          {
+            "citation": 2,
+            "page_number": 1,
+            "chunk_index": 1,
+            "content": "Infrastructure:\n \nDocker,\n \nKubernetes\n \nand\n \nAWS.\n \n \nProfessional\n \nExperience\n \nNorthstar\n \nMobility\n \n-\n \nSenior\n \nSoftware\n \nEngineer\n \nJuly\n \n2024\n \n-\n \nPresent\n \nDragoon\n \ndeveloped\n \nevent-\ndriven\n \ntrip\n \nprocessing\n \nservices\n \nusing\n \nApache\n \nKafka.\n \nShe\n \ndesigned\n \nREST\n \nAPIs\n \nusing\n \nFastAPI\n \nand\n \nimproved\n \ndatabase\n \nquery\n \nperformance\n \nby\n \n35\n \npercent.\n \nShe\n \nalso\n \nimplemented\n \na\n \ndocument\n \nretrieval\n \nassistant\n \nusing\n \nChromaDB\n \nand\n \nLangGraph.\n \n \nBluewave\n \nCommerce\n \n-\n \nBackend\n \nEngineer\n \nJanuary\n \n2021\n \n-\n \nJune\n \n2024\n \nDragoon\n \ndeveloped\n \norder\n \nmanagement\n \nmicroservices\n \nusing\n \nJava\n \nand\n \nSpring\n \nBoot.\n \nShe\n \nimplemented\n \nRedis\n \ncaching\n \nand\n \nasynchronous\n \npayment\n \nprocessing\n \nusing\n \nRabbitMQ.\n \n \nCedar\n \nTechnologies\n \n-"
+          }
+        ]
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": true,
+        "evidence_coverage": 1.0,
+        "citation_contract_valid": true,
+        "correct_abstention": null,
+        "false_answer": null,
+        "false_abstention": false,
+        "passed": true
+      },
+      "latency_ms": 710.6500240042806
+    },
+    {
+      "case_id": "cv-003",
+      "question": "What experience does Dragoon have with Apache Kafka?",
+      "reference_answer": "He developed event-driven trip processing services using Apache Kafka at Northstar Mobility.",
+      "expected_status": "answered",
+      "response": {
+        "answer": "Dragoon has experience with Apache Kafka, having developed event-driven trip processing services using it while working as a Senior Software Engineer at Northstar Mobility (July 2024 \u2013 Present). Apache Kafka is also listed among her technical skills in the messaging category.",
+        "status": "answered",
+        "sources": [
+          {
+            "citation": 1,
+            "page_number": 1,
+            "chunk_index": 1,
+            "content": "Infrastructure:\n \nDocker,\n \nKubernetes\n \nand\n \nAWS.\n \n \nProfessional\n \nExperience\n \nNorthstar\n \nMobility\n \n-\n \nSenior\n \nSoftware\n \nEngineer\n \nJuly\n \n2024\n \n-\n \nPresent\n \nDragoon\n \ndeveloped\n \nevent-\ndriven\n \ntrip\n \nprocessing\n \nservices\n \nusing\n \nApache\n \nKafka.\n \nShe\n \ndesigned\n \nREST\n \nAPIs\n \nusing\n \nFastAPI\n \nand\n \nimproved\n \ndatabase\n \nquery\n \nperformance\n \nby\n \n35\n \npercent.\n \nShe\n \nalso\n \nimplemented\n \na\n \ndocument\n \nretrieval\n \nassistant\n \nusing\n \nChromaDB\n \nand\n \nLangGraph.\n \n \nBluewave\n \nCommerce\n \n-\n \nBackend\n \nEngineer\n \nJanuary\n \n2021\n \n-\n \nJune\n \n2024\n \nDragoon\n \ndeveloped\n \norder\n \nmanagement\n \nmicroservices\n \nusing\n \nJava\n \nand\n \nSpring\n \nBoot.\n \nShe\n \nimplemented\n \nRedis\n \ncaching\n \nand\n \nasynchronous\n \npayment\n \nprocessing\n \nusing\n \nRabbitMQ.\n \n \nCedar\n \nTechnologies\n \n-"
+          },
+          {
+            "citation": 2,
+            "page_number": 1,
+            "chunk_index": 0,
+            "content": "Dragoon\n \nPete\n \nSenior\n \nBackend\n \n&\n \nAI\n \nEngineer\n \nFictional\n \nprofessional\n \nprofile\n \n-\n \nRAGForge\n \nevaluation\n \nfixture\n \n \nProfessional\n \nSummary\n \nDragoon\n \nPete\n \nis\n \na\n \nSenior\n \nBackend\n \nand\n \nAI\n \nEngineer\n \nwith\n \neight\n \nyears\n \nof\n \nprofessional\n \nsoftware\n \nengineering\n \nexperience.\n \nShe\n \nspecializes\n \nin\n \ndistributed\n \nsystems,\n \nbackend\n \nAPIs\n \nand\n \nretrieval-\naugmented\n \ngeneration\n \napplications.\n \n \nTechnical\n \nSkills\n \nProgramming\n \nlanguages:\n \nPython,\n \nJava\n \nand\n \nTypeScript.\n \nFrameworks:\n \nFastAPI,\n \nSpring\n \nBoot\n \nand\n \nNestJS.\n \nDatabases:\n \nPostgreSQL,\n \nMongoDB\n \nand\n \nRedis.\n \nMessaging:\n \nApache\n \nKafka\n \nand\n \nRabbitMQ.\n \nInfrastructure:\n \nDocker,\n \nKubernetes\n \nand\n \nAWS.\n \n \nProfessional\n \nExperience\n \nNorthstar\n \nMobility\n \n-\n \nSenior"
+          }
+        ]
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": true,
+        "evidence_coverage": 1.0,
+        "citation_contract_valid": true,
+        "correct_abstention": null,
+        "false_answer": null,
+        "false_abstention": false,
+        "passed": true
+      },
+      "latency_ms": 712.370199005818
+    },
+    {
+      "case_id": "cv-004",
+      "question": "What degrees has Dragoon completed?",
+      "reference_answer": "A master's degree in Artificial Intelligence in 2023 and a bachelor's degree in Computer Science in 2018.",
+      "expected_status": "answered",
+      "response": {
+        "answer": "Dragoon has completed a Master of Science in Artificial Intelligence from Westbridge University (2023) and a Bachelor of Science in Computer Science from Oakfield University (2018).",
+        "status": "answered",
+        "sources": [
+          {
+            "citation": 2,
+            "page_number": 1,
+            "chunk_index": 2,
+            "content": "Redis\n \ncaching\n \nand\n \nasynchronous\n \npayment\n \nprocessing\n \nusing\n \nRabbitMQ.\n \n \nCedar\n \nTechnologies\n \n-\n \nSoftware\n \nEngineer\n \nSeptember\n \n2018\n \n-\n \nDecember\n \n2020\n \nDragoon\n \ndeveloped\n \ninternal\n \nbusiness\n \napplications\n \nusing\n \nPython\n \nand\n \nPostgreSQL.\n \n \nEducation\n \nMaster\n \nof\n \nScience\n \nin\n \nArtificial\n \nIntelligence,\n \nWestbridge\n \nUniversity,\n \ncompleted\n \nin\n \n2023.\n \nBachelor\n \nof\n \nScience\n \nin\n \nComputer\n \nScience,\n \nOakfield\n \nUniversity,\n \ncompleted\n \nin\n \n2018.\n \n \nLanguages\n \nEnglish:\n \nFluent.\n \nSpanish:\n \nIntermediate.\n \n \nCertifications\n \nAWS\n \nCertified\n \nDeveloper\n \n-\n \nAssociate,\n \nobtained\n \nin\n \n2024."
+          }
+        ]
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": true,
+        "evidence_coverage": 1.0,
+        "citation_contract_valid": true,
+        "correct_abstention": null,
+        "false_answer": null,
+        "false_abstention": false,
+        "passed": true
+      },
+      "latency_ms": 714.0213020029478
+    },
+    {
+      "case_id": "cv-005",
+      "question": "What professional experience does Dragoon have with Rust?",
+      "reference_answer": "The document does not provide information about Rust experience.",
+      "expected_status": "insufficient_context",
+      "response": {
+        "answer": "The provided documents do not contain enough information to answer this question.",
+        "status": "insufficient_context",
+        "sources": []
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": null,
+        "evidence_coverage": null,
+        "citation_contract_valid": true,
+        "correct_abstention": true,
+        "false_answer": false,
+        "false_abstention": null,
+        "passed": true
+      },
+      "latency_ms": 641.6996289917734
+    },
+    {
+      "case_id": "cv-006",
+      "question": "What is the capital of Japan?",
+      "reference_answer": "The document does not contain this information.",
+      "expected_status": "insufficient_context",
+      "response": {
+        "answer": "The provided documents do not contain enough information to answer this question.",
+        "status": "insufficient_context",
+        "sources": []
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": null,
+        "evidence_coverage": null,
+        "citation_contract_valid": true,
+        "correct_abstention": true,
+        "false_answer": false,
+        "false_abstention": null,
+        "passed": true
+      },
+      "latency_ms": 478.47818199079484
+    }
+  ]
+}

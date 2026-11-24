@@ -35,13 +35,13 @@ jobs:
         run: uv sync --locked --group dev
 
       - name: Check formatting
-        run: uv run ruff format --check src tests
+        run: uv run ruff format --check src tests evals
 
       - name: Run linting
-        run: uv run ruff check src tests
+        run: uv run ruff check src tests evals
 
       - name: Run type checking
-        run: uv run mypy src
+        run: uv run mypy src evals
 
 
   integration:

@@ -21,7 +21,7 @@ AI assistants and future embeddable Q&A integrations.
 RAGForge turns text-based PDFs into searchable knowledge and lets authenticated users ask questions with page-level source references. It combines conventional backend engineering with retrieval-augmented generation (RAG), rather than treating an LLM as a standalone chatbot.
 
 
-**Status:** v0.1.0 — Initial public release.
+**Status:** v0.1.1 — Retrieval reliability and evaluation improvements.
 
 RAGForge is an actively developed, local-first AI knowledge
 platform with automated continuous integration.
@@ -265,13 +265,24 @@ See [`.env.example`](.env.example) for the full development template.
 | `MAX_UPLOAD_BYTES`, `MAX_PDF_PAGES` | 10 MiB, 100 pages |
 | `EMBEDDING_MODEL` | `sentence-transformers/all-MiniLM-L6-v2` |
 | `CHUNK_SIZE`, `CHUNK_OVERLAP` | 800, 120 |
-| `RETRIEVAL_TOP_K`, `RETRIEVAL_MIN_SCORE` | 5, 0.35 |
+| `RETRIEVAL_TOP_K`, `RETRIEVAL_MIN_SCORE` | 7, 0.0 |
 | `GROQ_API_KEY`, `GROQ_MODEL` | API key and configured model (`llama-3.3-70b-versatile`) |
 | `LLM_TEMPERATURE`, `LLM_MAX_TOKENS` | 0, 700 |
 | `RAG_MAX_CONTEXT_CHARS` | 12000 |
 | `JWT_SECRET`, `JWT_EXPIRE_MINUTES` | Random secret (32+ characters), 60 minutes |
 | `DOCS_ENABLED` | `true`; controls Swagger and OpenAPI |
 | `LANGSMITH_TRACING`, `LANGSMITH_API_KEY`, `LANGSMITH_PROJECT` | Optional tracing configuration |
+
+Retrieval scores represent clipped cosine similarity between
+normalized query and document embeddings. They are not probabilities
+or answer confidence scores.
+
+By default, RAGForge retrieves the highest-ranked candidates without
+minimum-score filtering to reduce premature evidence rejection.
+
+Grounded answer generation and citation validation remain active.
+Custom similarity thresholds should be calibrated using representative
+evaluation datasets.
 
 Changing the embedding model may require a new collection and re-ingestion. Use a model supported by your Groq account if the configured model is unavailable.
 
@@ -325,17 +336,34 @@ uv run --no-sync mypy src
 
 GitHub Actions runs formatting, linting, type checking, Docker integration tests and an image build on pushes and pull requests to `main`. Continuous deployment is not yet configured.
 
-## AI evaluation
+## AI Evaluation
 
-The optional LangSmith runner checks expected answer/abstention status and required fact presence against a small synthetic telecom dataset. It is not a comprehensive hallucination or security benchmark.
+RAGForge supports local retrieval and answer benchmarks, as well as optional LangSmith experiments using shared deterministic evaluation metrics.
 
-Upload `docs/sample-telecom-policy.pdf`, wait for indexing, then set `EVAL_DOCUMENT_ID` to its document UUID in `.env`. Set `LANGSMITH_API_KEY` and a valid Groq key. Run:
+To run a LangSmith evaluation:
+
+1. Upload the corresponding evaluation PDF.
+2. Wait until the document is indexed.
+3. Configure your Groq and LangSmith API credentials.
+4. Run the evaluation service:
 
 ```bash
-docker compose --profile eval run --rm evals
+docker compose --profile eval run --rm evals \
+  uv run --no-sync python -m evals.run_evaluation \
+  --document-id DOCUMENT_UUID \
+  --dataset evals/datasets/synthetic_cv.json \
+  --split all
 ```
 
-Inspect experiments in LangSmith. The runner reuses an existing dataset if present; use a fresh dataset name in the script if changing test cases. Run evaluations only on authorized synthetic/test data: questions and outputs may be transmitted to external services. Provider usage limits apply.
+The evaluation runner automatically versions datasets using a content fingerprint and records experiment configuration metadata.
+
+Supported splits are `tuning`, `held_out`, and `all`.
+
+Evaluation metrics include answer status, required facts, cited evidence coverage, citation contract validity, abstention behaviour, and overall pass rate.
+
+Only evaluate authorized test documents. Evaluation inputs, outputs, reference evidence and traces may be transmitted to external services.
+
+See [Evaluation Documentation](docs/evaluation.md) for benchmark results, methodology and limitations.
 
 ## Security and limitations
 
@@ -360,6 +388,27 @@ Current scope: text-based PDFs, individual user ownership, one document per conv
 
 Stop services with `docker compose down`. Named volumes retain data. **Do not add `-v` unless you intentionally want to delete databases, PDFs and caches.**
 
+## Retrieval and Answer Evaluation
+
+RAGForge includes an automated evaluation framework for measuring retrieval quality, answer completeness, citation validity, and abstention behaviour.
+
+| Benchmark | Result |
+|---|---:|
+| Answer evaluation | 30/30 cases passed |
+| Answerable questions | 22/22 |
+| Unsupported questions correctly rejected | 8/8 |
+| Telecom held-out Recall@7 | 100% |
+| Telecom held-out evidence coverage | 100% |
+| Telecom held-out MRR | 0.875 |
+| Mean telecom held-out retrieval latency | 24.33 ms |
+
+These results were measured on a controlled evaluation suite consisting of a synthetic professional profile and a nine-page telecom technical reference guide.
+
+The evaluation framework supports configurable retrieval benchmarks, reference evidence mapping, tuning and held-out datasets, and reproducible JSON reports.
+
+See the [evaluation documentation](docs/evaluation.md) for methodology, configuration, execution instructions, and limitations.
+
+Benchmark results are specific to the evaluated datasets and do not guarantee universal answer accuracy.
 
 ## Roadmap
 

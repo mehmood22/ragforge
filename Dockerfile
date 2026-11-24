@@ -20,6 +20,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 COPY README.md alembic.ini ./
 COPY alembic/ ./alembic/
 COPY src/ ./src/
+COPY evals/ ./evals/
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked --no-dev
 

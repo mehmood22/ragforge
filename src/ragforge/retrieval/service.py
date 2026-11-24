@@ -12,13 +12,27 @@ from ragforge.core.exceptions import (
     DocumentNotFoundException,
 )
 from ragforge.infrastructure.chroma import get_chroma_client
+from ragforge.infrastructure.collection import validate_collection
 from ragforge.models.document import Document, DocumentStatus
+from ragforge.retrieval.scoring import squared_l2_to_relevance
 from ragforge.schemas.retrieval import RetrievedChunk
 
 
 @lru_cache(maxsize=1)
+@lru_cache(maxsize=1)
 def get_vector_store() -> Chroma:
     settings = get_settings()
+    client = get_chroma_client()
+
+    collection = client.get_collection(
+        name=settings.chroma_collection,
+    )
+
+    validate_collection(
+        metadata=collection.metadata,
+        configuration=collection.configuration,
+        expected_embedding_model=settings.embedding_model,
+    )
 
     embeddings = HuggingFaceEmbeddings(
         model_name=settings.embedding_model,
@@ -26,9 +40,10 @@ def get_vector_store() -> Chroma:
     )
 
     return Chroma(
-        client=get_chroma_client(),
+        client=client,
         collection_name=settings.chroma_collection,
         embedding_function=embeddings,
+        relevance_score_fn=squared_l2_to_relevance,
         create_collection_if_not_exists=False,
     )
 

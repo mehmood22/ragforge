@@ -1,0 +1,376 @@
+{
+  "created_at": "2026-11-24T22:02:20.230713+00:00",
+  "document_id": "572dd3ab-3b70-4508-b97f-467213032f4d",
+  "generation_id": "81535d13-dd6b-43a9-ad4e-676a369bceb8",
+  "dataset": "synthetic_telecom.json",
+  "split": "tuning",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "llm_model": "qwen/qwen3.8-27b",
+  "top_k": 7,
+  "min_score": 0.0,
+  "case_count": 12,
+  "mean_latency_ms": 9838.331937581339,
+  "summary": {
+    "status_correct": 1.0,
+    "required_facts_present": 1.0,
+    "evidence_coverage": 1.0,
+    "citation_contract_valid": 1.0,
+    "correct_abstention": 1.0,
+    "false_answer": 0.0,
+    "false_abstention": 0.0,
+    "passed": 1.0
+  },
+  "cases": [
+    {
+      "case_id": "tel-001",
+      "question": "What are the typical download speeds of 4G LTE networks?",
+      "reference_answer": "20-150 Mbps.",
+      "expected_status": "answered",
+      "response": {
+        "answer": "4G (LTE) networks have typical download speeds of 20\u2013150 Mbps.",
+        "status": "answered",
+        "sources": [
+          {
+            "citation": 1,
+            "page_number": 2,
+            "chunk_index": 2,
+            "content": "worldwide.\n4G (LTE) networks delivered a major leap forward, with typical download speeds of 20-150 Mbps and latency\nbelow 50 ms. LTE networks are fully IP-based, meaning voice calls are transmitted as data (VoLTE) rather than\nover a separate circuit-switched channel. LTE-Advanced (LTE-A) uses carrier aggregation to combine multiple\nfrequency bands, pushing speeds beyond 300 Mbps.\n5G networks represent the current frontier. Deploying across sub-6 GHz and millimetre-wave (mmWave)\nspectrum, 5G targets peak speeds of 10 Gbps, latency under 1 ms, and the ability to connect up to one million\ndevices per square kilometre. This density makes 5G critical for IoT deployments, autonomous vehicles, and\nsmart city infrastructure."
+          },
+          {
+            "citation": 2,
+            "page_number": 2,
+            "chunk_index": 1,
+            "content": "Telecom Technical Reference Guide  - Internal Use Only\n1. Introduction to Mobile Networks\nMobile networks have evolved through several generations, each offering significant improvements in speed,\ncapacity, and capability.\n2G (GSM) networks introduced digital voice and basic data services such as SMS. Data speeds were limited to\naround 50 kbps, sufficient only for text messaging and simple email.\n3G (UMTS/HSPA) networks brought mobile broadband, enabling video calls, mobile internet browsing, and app\ndownloads at speeds of 1-14 Mbps. This generation established the foundation for smartphone adoption\nworldwide.\n4G (LTE) networks delivered a major leap forward, with typical download speeds of 20-150 Mbps and latency"
+          }
+        ]
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": true,
+        "evidence_coverage": 1.0,
+        "citation_contract_valid": true,
+        "correct_abstention": null,
+        "false_answer": null,
+        "false_abstention": false,
+        "passed": true
+      },
+      "latency_ms": 1617.3369309981354
+    },
+    {
+      "case_id": "tel-002",
+      "question": "How long should airplane mode remain enabled when troubleshooting a temporary network glitch?",
+      "reference_answer": "10 seconds.",
+      "expected_status": "answered",
+      "response": {
+        "answer": "Airplane mode should be toggled on for 10 seconds and then turned off to force the device to re-register on the network.",
+        "status": "answered",
+        "sources": [
+          {
+            "citation": 1,
+            "page_number": 3,
+            "chunk_index": 4,
+            "content": "Telecom Technical Reference Guide  - Internal Use Only\n2. Troubleshooting Connectivity Issues\nConnectivity problems are the most common category of customer complaints. A structured diagnostic approach\nresolves the majority of cases without escalation.\nStep 1  - Verify signal strength. Open the device's status bar or dial *3001#12345#* (iOS) or use a network signal\napp (Android) to view the raw signal level in dBm. A signal above -85 dBm is good; between -85 and -100 dBm is\nmarginal; below -100 dBm is poor. If signal is weak, moving closer to a window or to a higher floor often helps.\nStep 2  - Rule out a temporary network glitch. Toggle airplane mode on for 10 seconds then off. This forces the\ndevice to re-register on the network, which resolves many transient issues."
+          }
+        ]
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": true,
+        "evidence_coverage": 1.0,
+        "citation_contract_valid": true,
+        "correct_abstention": null,
+        "false_answer": null,
+        "false_abstention": false,
+        "passed": true
+      },
+      "latency_ms": 1024.391012993874
+    },
+    {
+      "case_id": "tel-003",
+      "question": "What are the throttled speeds for standard and premium data plans after their high-speed allowances are exhausted?",
+      "reference_answer": "512 kbps for standard plans and 1 Mbps for premium plans.",
+      "expected_status": "answered",
+      "response": {
+        "answer": "After their high-speed data allowances are exhausted, standard plans are throttled to 512 kbps and premium plans are throttled to 1 Mbps for the remainder of the billing cycle.",
+        "status": "answered",
+        "sources": [
+          {
+            "citation": 1,
+            "page_number": 4,
+            "chunk_index": 7,
+            "content": "Telecom Technical Reference Guide  - Internal Use Only\n3. Understanding Data Plans and Fair Use Policy\nData plans define how much high-speed data a customer can consume per billing cycle. Understanding plan\nmechanics helps agents resolve billing disputes and set correct customer expectations.\nHigh-Speed Data Allowance: Each plan includes a fixed high-speed data allowance (e.g. 20 GB, 50 GB, or\nUnlimited). Once this allowance is consumed, the account is throttled to a reduced speed  - typically 512 kbps on\nstandard plans and 1 Mbps on premium plans  - for the remainder of the billing cycle. Throttled speeds allow\ncontinued internet use but are unsuitable for video streaming or large downloads."
+          }
+        ]
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": true,
+        "evidence_coverage": 1.0,
+        "citation_contract_valid": true,
+        "correct_abstention": null,
+        "false_answer": null,
+        "false_abstention": false,
+        "passed": true
+      },
+      "latency_ms": 912.8424659720622
+    },
+    {
+      "case_id": "tel-004",
+      "question": "At what data usage level may unlimited plan customers experience deprioritisation during congestion?",
+      "reference_answer": "Typically above 100 GB per billing cycle.",
+      "expected_status": "answered",
+      "response": {
+        "answer": "Unlimited plan customers who consume an unusually large volume of data\u2014typically above 100 GB per cycle\u2014may be deprioritised during periods of network congestion.",
+        "status": "answered",
+        "sources": [
+          {
+            "citation": 1,
+            "page_number": 4,
+            "chunk_index": 8,
+            "content": "continued internet use but are unsuitable for video streaming or large downloads.\nUnlimited Plans and Fair Use: Plans marketed as \"unlimited\" are subject to a Fair Use Policy (FUP). Customers\nwho consume an unusually large volume of data  - typically above 100 GB per cycle  - may be deprioritised during\nperiods of network congestion. Deprioritisation is temporary and only applied when the customer is connected to a\ncongested cell; it does not affect customers in uncongested areas.\nData Rollover: Some plans include a data rollover feature. Unused high-speed data at the end of a billing cycle is\ncarried forward to the next cycle, up to a maximum of one month's allowance. Rolled-over data is consumed\nbefore the current cycle's allowance."
+          }
+        ]
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": true,
+        "evidence_coverage": 1.0,
+        "citation_contract_valid": true,
+        "correct_abstention": null,
+        "false_answer": null,
+        "false_abstention": false,
+        "passed": true
+      },
+      "latency_ms": 1018.2168089959305
+    },
+    {
+      "case_id": "tel-005",
+      "question": "At which percentages of data usage are push notifications sent?",
+      "reference_answer": "80% and 100%.",
+      "expected_status": "answered",
+      "response": {
+        "answer": "Push notifications are sent at 80% and 100% of data usage.",
+        "status": "answered",
+        "sources": [
+          {
+            "citation": 1,
+            "page_number": 4,
+            "chunk_index": 10,
+            "content": "Data Usage Monitoring: Customers can monitor real-time usage in the MyTelecom app. Push notifications are\nsent at 80% and 100% of usage. Enabling data usage alerts at the OS level provides an additional safeguard\nagainst unexpected overages.\nPage 4"
+          },
+          {
+            "citation": 2,
+            "page_number": 4,
+            "chunk_index": 9,
+            "content": "before the current cycle's allowance.\nAdd-On Data Packs: Customers who exhaust their high-speed allowance mid-cycle can purchase add-on data\npacks to restore full speeds. Packs activate immediately upon purchase and are valid until the end of the current\nbilling cycle. Unused add-on data does not roll over.\nHotspot (Tethering) Usage: Hotspot usage draws from the same data allowance as device usage. However, some\nplans include a separate hotspot sub-allowance. Once the hotspot sub-allowance is exhausted, hotspot speeds\nare throttled even if device data remains available. Enterprise and business plans typically have higher or\nuncapped hotspot allowances.\nData Usage Monitoring: Customers can monitor real-time usage in the MyTelecom app. Push notifications are"
+          }
+        ]
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": true,
+        "evidence_coverage": 1.0,
+        "citation_contract_valid": true,
+        "correct_abstention": null,
+        "false_answer": null,
+        "false_abstention": false,
+        "passed": true
+      },
+      "latency_ms": 10887.88715499686
+    },
+    {
+      "case_id": "tel-006",
+      "question": "How long can network-level international roaming activation take?",
+      "reference_answer": "Up to 15 minutes.",
+      "expected_status": "answered",
+      "response": {
+        "answer": "Network-level international roaming activation can take up to 15 minutes.",
+        "status": "answered",
+        "sources": [
+          {
+            "citation": 1,
+            "page_number": 5,
+            "chunk_index": 12,
+            "content": "usage.\nRoaming Zones: Our network divides the world into roaming zones based on inter-operator agreements and cost\nstructures. Zone A (EU, UK, Australia, New Zealand) has the lowest roaming rates. Zone B (USA, Canada,\nJapan, Singapore) has moderate rates. Zone C (Rest of World) has the highest per-MB and per-minute charges.\nCustomers should always purchase a roaming bundle before travelling to Zone B or C countries to avoid bill\nshock.\nActivating Roaming: Roaming must be enabled on the account before departure. The customer can toggle it in the\nMyTelecom app under Plan & Services > International Roaming or by calling 611. Network-level activation takes\nup to 15 minutes. If a customer enables roaming after landing abroad, they may receive a brief period of no"
+          },
+          {
+            "citation": 2,
+            "page_number": 5,
+            "chunk_index": 13,
+            "content": "up to 15 minutes. If a customer enables roaming after landing abroad, they may receive a brief period of no\nservice while the HLR record is updated.\nRoaming Bundles: Bundles are purchased for a specific destination or zone and are valid for the calendar days\nselected. A daily bundle covers midnight to midnight in the home timezone. Customers who activate a bundle\nafter using some data on the day will still be charged the bundle price, but any pre-bundle usage at standard rates\nis not reversed.\nCommon Roaming Failures: The three most common reasons a customer has no service abroad are: (1) roaming\nnot enabled on the account, (2) device not configured for automatic network selection  - navigate to Settings >"
+          }
+        ]
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": true,
+        "evidence_coverage": 1.0,
+        "citation_contract_valid": true,
+        "correct_abstention": null,
+        "false_answer": null,
+        "false_abstention": false,
+        "passed": true
+      },
+      "latency_ms": 14999.695841019275
+    },
+    {
+      "case_id": "tel-007",
+      "question": "Can an eSIM support multiple profiles without physically swapping SIM cards?",
+      "reference_answer": "Yes, eSIM supports multiple profiles simultaneously.",
+      "expected_status": "answered",
+      "response": {
+        "answer": "Yes, an eSIM supports multiple profiles simultaneously, allowing the user to switch between carriers or maintain a local SIM while roaming without physically swapping cards.",
+        "status": "answered",
+        "sources": [
+          {
+            "citation": 1,
+            "page_number": 6,
+            "chunk_index": 16,
+            "content": "SIM it can be reprogrammed over the air. The customer receives a QR code or activation code that loads a profile\nonto the eSIM. eSIM supports multiple profiles simultaneously, allowing the user to switch between carriers or\nmaintain a local SIM while roaming without physically swapping cards. Most flagship smartphones since 2020\nsupport eSIM.\niSIM: The integrated SIM (iSIM) goes a step further by integrating the SIM functionality directly into the device's\nmain SoC (System-on-Chip). iSIM reduces device size and power consumption further than eSIM and is common\nin smartwatches and IoT devices.\nSIM Security: The SIM stores Ki, a 128-bit authentication key that never leaves the card. During network"
+          },
+          {
+            "citation": 2,
+            "page_number": 6,
+            "chunk_index": 15,
+            "content": "Telecom Technical Reference Guide  - Internal Use Only\n5. SIM Card Technology\nThe Subscriber Identity Module (SIM) is the secure element that identifies a customer on the network. It stores the\nInternational Mobile Subscriber Identity (IMSI), authentication keys, and basic service configuration.\nForm Factors: SIM cards have evolved from the original credit-card-sized (1FF) format through mini-SIM (2FF),\nmicro-SIM (3FF), and nano-SIM (4FF). Today the vast majority of smartphones use nano-SIM. Some industrial\nIoT devices still use the larger 2FF format for robustness.\neSIM: The embedded SIM (eSIM) is a chip soldered directly into the device during manufacture. Unlike a physical\nSIM it can be reprogrammed over the air. The customer receives a QR code or activation code that loads a profile"
+          }
+        ]
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": true,
+        "evidence_coverage": 1.0,
+        "citation_contract_valid": true,
+        "correct_abstention": null,
+        "false_answer": null,
+        "false_abstention": false,
+        "passed": true
+      },
+      "latency_ms": 14177.419754996663
+    },
+    {
+      "case_id": "tel-008",
+      "question": "How many days after invoice generation are autopay customers charged?",
+      "reference_answer": "14 days.",
+      "expected_status": "answered",
+      "response": {
+        "answer": "Autopay customers are charged automatically 14 days after invoice generation.",
+        "status": "answered",
+        "sources": [
+          {
+            "citation": 1,
+            "page_number": 8,
+            "chunk_index": 24,
+            "content": "Billing Cycle: Each customer has a monthly billing cycle anchored to their account creation date. At the end of the\ncycle, the billing engine aggregates all charges, applies any discounts or bundle credits, and generates the\ninvoice. Autopay customers are charged automatically 14 days after invoice generation.\nPrepaid vs Postpaid: Prepaid accounts are charged in real time  - before each call or data session, the system\nchecks the account balance and rejects the session if insufficient credit exists. Postpaid accounts accrue charges\nthroughout the cycle and are billed at the end. Hybrid prepaid-postpaid plans (e.g. pay-monthly with real-time data\ntop-ups) use a combination of both mechanisms.\nCommon Dispute Types and Resolutions:"
+          }
+        ]
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": true,
+        "evidence_coverage": 1.0,
+        "citation_contract_valid": true,
+        "correct_abstention": null,
+        "false_answer": null,
+        "false_abstention": false,
+        "passed": true
+      },
+      "latency_ms": 14971.98276600102
+    },
+    {
+      "case_id": "tel-009",
+      "question": "How long should accounts with recent SIM swaps remain under elevated fraud monitoring?",
+      "reference_answer": "30 days.",
+      "expected_status": "answered",
+      "response": {
+        "answer": "Accounts with recent SIM swaps should remain under elevated fraud monitoring for 30 days.",
+        "status": "answered",
+        "sources": [
+          {
+            "citation": 1,
+            "page_number": 9,
+            "chunk_index": 28,
+            "content": "protocols. 5G's use of HTTPS-based APIs (Service Based Architecture) substantially reduces this attack surface.\nSIM Swap Fraud: Described in Section 5. Key mitigation: enforce strict in-person or multi-factor remote identity\nverification before any SIM replacement. Flag accounts with recent SIM swaps for elevated fraud monitoring for\n30 days.\nInternational Revenue Share Fraud (IRSF): Fraudsters compromise a PBX or customer account and generate\nlarge volumes of calls to premium-rate international numbers, earning a revenue share from the terminating\ncarrier. Signs include sudden spikes in international call volume, calls to unusual destinations, and calls at atypical\nhours. Automated fraud management systems flag and temporarily bar suspected accounts. Agents should not"
+          }
+        ]
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": true,
+        "evidence_coverage": 1.0,
+        "citation_contract_valid": true,
+        "correct_abstention": null,
+        "false_answer": null,
+        "false_abstention": false,
+        "passed": true
+      },
+      "latency_ms": 15057.671421993291
+    },
+    {
+      "case_id": "tel-010",
+      "question": "What will the telecom company's annual revenue be in 2040?",
+      "reference_answer": "The document does not provide this information.",
+      "expected_status": "insufficient_context",
+      "response": {
+        "answer": "The provided documents do not contain enough information to answer this question.",
+        "status": "insufficient_context",
+        "sources": []
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": null,
+        "evidence_coverage": null,
+        "citation_contract_valid": true,
+        "correct_abstention": true,
+        "false_answer": false,
+        "false_abstention": null,
+        "passed": true
+      },
+      "latency_ms": 14036.647756991442
+    },
+    {
+      "case_id": "tel-011",
+      "question": "Who founded SpaceX?",
+      "reference_answer": "The document does not provide this information.",
+      "expected_status": "insufficient_context",
+      "response": {
+        "answer": "The provided documents do not contain enough information to answer this question.",
+        "status": "insufficient_context",
+        "sources": []
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": null,
+        "evidence_coverage": null,
+        "citation_contract_valid": true,
+        "correct_abstention": true,
+        "false_answer": false,
+        "false_abstention": null,
+        "passed": true
+      },
+      "latency_ms": 15380.09752400103
+    },
+    {
+      "case_id": "tel-012",
+      "question": "What is the exact monthly subscription price of the premium data plan?",
+      "reference_answer": "The document does not specify the subscription price.",
+      "expected_status": "insufficient_context",
+      "response": {
+        "answer": "The provided documents do not contain enough information to answer this question.",
+        "status": "insufficient_context",
+        "sources": []
+      },
+      "metrics": {
+        "status_correct": true,
+        "required_facts_present": null,
+        "evidence_coverage": null,
+        "citation_contract_valid": true,
+        "correct_abstention": true,
+        "false_answer": false,
+        "false_abstention": null,
+        "passed": true
+      },
+      "latency_ms": 13975.79381201649
+    }
+  ]
+}

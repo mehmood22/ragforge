@@ -1,6 +1,6 @@
 [project]
 name = "ragforge"
-version = "0.1.0"
+version = "0.1.1"
 description = "A secure, multi-user Retrieval-Augmented Generation API with FastAPI, LangGraph, PostgreSQL, ChromaDB, and background PDF ingestion."
 readme = "README.md"
 authors = [
@@ -54,6 +54,8 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
 markers = [
@@ -61,6 +63,8 @@ markers = [
 ]
 
 [tool.mypy]
+mypy_path = "src"
+explicit_package_bases = true
 python_version = "3.12"
 plugins = ["pydantic.mypy"]
 
